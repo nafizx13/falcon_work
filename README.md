@@ -3,13 +3,10 @@
 Instrumentation, benchmarks and measurement records for **Falcon (FIPS 206 /
 FN-DSA) signature generation on the CVA6 RISC-V core**.
 
-This is the working tree behind the ICEEICT 2027 submission *"Cycle-Accurate
-Characterisation of Falcon Signature Generation on the CVA6 Core"*, and the
-starting point for the follow-on work: a `SamplerZ` coprocessor attached over
-CV-X-IF.
-
-Start with `docs/PHASE_PLAN.md` for what is being built and why, and
-`docs/WORK_SPLIT.md` for who owns what.
+This is the artifact for the ICCIT 2026 paper *"Cycle-Accurate
+Characterisation of Falcon Signature Generation on the CVA6 Core"*. It contains
+the instrumented Falcon trees, the benchmark harness, the two environment
+patches and the measurement records behind the tables and figures.
 
 ---
 
@@ -17,8 +14,7 @@ Start with `docs/PHASE_PLAN.md` for what is being built and why, and
 
 **It does not contain the build environment.** Running anything here needs a
 CVA6 tree, a RISC-V toolchain, Verilator and a patched Spike, none of which are
-version-controlled as a unit. What you need, and how to get it, is in
-`docs/WORK_SPLIT.md` §8. In short:
+version-controlled as a unit. The versions used are:
 
 | Component | Version |
 |---|---|
@@ -53,7 +49,6 @@ rebuilding is expected, not a sign something is missing.
 | `collab_1024/` | Falcon-1024 cross-check bundle, with `ENVIRONMENT.txt` and `SHA256SUMS`. |
 | `patches/` | The two out-of-tree patches the environment needs. See §6. |
 | `reference/` | Pristine `Falcon-impl-20211101` plus the upstream zip, for diffing against. |
-| `docs/` | Planning and results documents. See §7. |
 | `*.txt`, `*.log`, `variance.csv` | **Measurement records.** See §5. |
 
 ---
@@ -157,35 +152,16 @@ cd ~/cva6/verif/core-v-verif  && git apply ~/falcon-work/patches/spike-st_rvfi-s
 
 `spike-st_rvfi-speedup.patch` is 7 insertions and 6 deletions, and it is worth
 roughly a 5x speedup on Spike. `st_rvfi` is 192 KB and was being passed by
-value once per simulated instruction. `docs/FALCON_CVA6_HANDOFF.md` §10 records
-the three hypotheses that were tested and disproved before this was found, so
-do not re-litigate those.
+value once per simulated instruction.
 
 Rebuild Spike after applying, and rebuild the Verilator model after applying
 the CVA6 patch.
 
 ---
 
-## 7. Documents
+## 7. Conventions
 
-| File | Read it for |
-|---|---|
-| `docs/PHASE_PLAN.md` | Scope, the seven phases, dates, risks, decisions and why they were taken |
-| `docs/WORK_SPLIT.md` | The three tracks, per-phase ownership, handoff contracts, file ownership, environment transfer |
-| `docs/FALCON_CVA6_HANDOFF.md` | Bring-up, tooling, and the gotchas section. Read §7 before running anything |
-| `docs/PAPER_SCOPE.md` | The baseline measurements and how they were produced |
-| `docs/RESULTS_ANALYSIS.md` | Full analysis of the measurement set |
-| `docs/CV32A60X_RESULTS.md` | The complete `cv32a60x` record |
-| `docs/THREE_GROUP_COMPARISON.md` | Cross-check validity matrix across the three measurement efforts |
-| `docs/PAPER_DRAFT.md` | Pre-LaTeX draft of the submission |
-| `docs/BUNDLE_README.md` | Notes on the distribution bundle |
-
----
-
-## 8. Conventions
-
-Learned the expensive way. `docs/FALCON_CVA6_HANDOFF.md` §7 and §9 have the
-detail.
+Learned the expensive way.
 
 - **Never mix an `-O3` timing run with a `-fno-inline` attribution run**, or
   their percentages. `BerExp` is `static` and inlines away at `-O3`.
@@ -201,11 +177,10 @@ detail.
 
 ---
 
-## 9. Notes
+## 8. Notes
 
 The default branch is `main`.
 
-**Keep this repository private.** Several `falcon_key.h` files contain
-precomputed Falcon keypairs. They are benchmark keys with no real-world value,
-but they are private keys, and the artefact bundle in P6 should replace them
-with a generation script before anything is published.
+Several `falcon_key.h` files contain precomputed Falcon keypairs. These are
+benchmark keys, generated solely so that signing can be measured without
+running key generation, and they protect nothing. Do not reuse them.
