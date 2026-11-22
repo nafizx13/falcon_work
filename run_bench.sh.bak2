@@ -1,0 +1,91 @@
+#!/bin/bash
+# Falcon benchmark runner.   Usage:  ./run_bench.sh spike | rtl | spike-trace
+#
+#   spike        compile directly + run spike with NO commit trace.
+#                Fast, small log. Use this for correctness and instr counts.
+#   spike-trace  via cva6.py WITH the commit trace (needed for profile_csv.py).
+#                Produces ~100 bytes of log per instruction - gigabytes for Falcon.
+#   rtl          via cva6.py on the Verilator model.
+set -u
+MODE="${1:-}"
+BENCH="${2:-sign}"   # sign (default, key precomputed) | full (runs keygen)
+W=$HOME/falcon-work
+C=$HOME/cva6
+TARGET=cv32a60x
+ISA=rv32imc_zba_zbb_zbs_zbc
+LD=$C/config/gen_from_riscv_config/$TARGET/linker/link.ld
+
+# BENCH=prof selects the instrumented tree (falcon_prof/) built by
+# prof/patch_prof.py, plus its own driver. That driver MUST stay inside
+# falcon_prof/: a quoted #include resolves against the including file's own
+# directory first, so a driver outside the tree picks up falcon/config.h and
+# silently builds against a different fpr type, with no diagnostic.
+if [ "$BENCH" = "prof" ]; then
+    FDIR=$W/falcon_prof
+    BENCHFILE=$FDIR/bench_sign_prof.c
+    PROF_SRC="$FDIR/falcon_prof.c"
+    PROF_DEF="-DFALCON_PROF=1"
+else
+    FDIR=$W/falcon
+    BENCHFILE=$W/bench_${BENCH/full/falcon}.c
+    PROF_SRC=""
+    PROF_DEF=""
+fi
+
+FALCON_SRC="$FDIR/codec.c $FDIR/common.c $FDIR/falcon.c $FDIR/fft.c $FDIR/fpr.c $FDIR/keygen.c $FDIR/rng.c $FDIR/shake.c $FDIR/sign.c $FDIR/vrfy.c $PROF_SRC"
+
+# -fno-tree-loop-distribute-patterns: at -O2 GCC rewrites the byte-fill loop
+# inside syscalls64.c's memset into a call to memset -> infinite recursion.
+COMMON="-misa-spec=2.2 -fno-tree-loop-distribute-patterns \
+$PROF_DEF -I$W -I$FDIR -I$C/verif/tests/custom/env -I$C/verif/tests/custom/common \
+-static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -O2 -g"
+SRCS="$BENCHFILE $W/shims.c $W/syscalls64.c $W/crt_bigstack.S $FALCON_SRC"
+# cva6.py passes the test file via --c_tests, so exclude it here or main is duplicated
+SRCS_NOMAIN="$W/shims.c $W/syscalls64.c $W/crt_bigstack.S $FALCON_SRC"
+
+case "$MODE" in
+spike)
+    ELF=$W/bench_${BENCH}.elf
+    echo "=== compiling ==="
+    riscv-none-elf-gcc $COMMON -march=${ISA}_zicsr_zifencei -mabi=ilp32 \
+        -T "$LD" $SRCS -lgcc -o "$ELF" 2>&1 | grep -vE "RWX permissions|^$"
+    [ -f "$ELF" ] || { echo "COMPILE FAILED"; exit 1; }
+    riscv-none-elf-size "$ELF"
+    echo "=== running spike (no trace) ==="
+    START=$(date +%s)
+    LD_LIBRARY_PATH="$SPIKE_INSTALL_DIR/lib:${LD_LIBRARY_PATH:-}" \
+    stdbuf -oL -eL "$SPIKE_INSTALL_DIR/bin/spike" \
+        --isa=${ISA}_zicsr_zifencei --priv=m \
+        --param-file "$C/config/gen_from_riscv_config/$TARGET/spike/spike.yaml" \
+        --log=/dev/null \
+        "$ELF" 2>&1 | grep --line-buffered -vE "^\[OK\]|^\[SPIKE\]|misa_we"         | tee "$W/last_spike_run.log"
+    END=$(date +%s)
+    echo "=== wall clock: $((END-START))s ==="
+    echo "=== saved to: $W/last_spike_run.log ==="
+    ;;
+spike-trace|rtl)
+    if [ "$MODE" = "rtl" ]; then
+        GCC_OPTS="-DUSE_UART $COMMON $SRCS_NOMAIN -lgcc"
+        ISS=veri-testharness; OUTDIR=veri-testharness_sim
+        EXTRA_A="--isscomp_opts=+define+COMMON_CELLS_ASSERTS_OFF"
+        EXTRA_B="--issrun_opts=+debug_disable=1 +time_out=${TIME_OUT:-400000000} +trace_limit=${TRACE_LIMIT:-2000}"
+    else
+        GCC_OPTS="$COMMON $SRCS_NOMAIN -lgcc"
+        ISS=spike; OUTDIR=spike_sim; EXTRA_A=""; EXTRA_B=""
+    fi
+    cd "$C/verif/sim" || exit 1
+    # cva6.py defaults --gen_timeout to 360 s, which killed the last RTL run.
+    # Falcon signing is ~62.8 M instr => ~2.8 h on Verilator. Default here: 12 h.
+    START=$(date +%s)
+    python3 -W ignore cva6.py --c_tests "$BENCHFILE" --target "$TARGET" \
+        --iss="$ISS" --iss_yaml=cva6.yaml --gcc_opts="$GCC_OPTS" $EXTRA_A "$EXTRA_B" --gen_timeout ${GEN_TIMEOUT:-43200} --iss_timeout ${ISS_TIMEOUT:-86400} --linker="$LD"
+    RC=$?; END=$(date +%s)
+    echo "=== exit=$RC  wall clock=$((END-START))s ==="
+    LOG=$(ls -t $C/verif/sim/out_*/$OUTDIR/bench_*.iss 2>/dev/null | head -1)
+    [ -n "$LOG" ] && { echo "log: $LOG ($(du -h "$LOG" | cut -f1))"
+      grep -aE "BENCH_|phase=|_cycles=|_instr=|_rc=|CHECKSUM|rcdt_|sig_len|failures|counter_overhead|logn=" "$LOG"
+      grep -aE "\*\*\* (SUCCESS|FAILED)|%Fatal|trap_" "$LOG" | tail -3; }
+    ;;
+*)
+    echo "usage: $0 spike|rtl|spike-trace [sign|full]"; exit 2;;
+esac

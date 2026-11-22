@@ -1,0 +1,42 @@
+# Generated 2026-10-10 -- compiled artifacts, regenerable from source.
+# Every entry below was confirmed to be an ELF binary by file(1).
+
+*.elf
+
+host/gen_key
+host/gen_key_1024
+native_validate/A
+native_validate/B
+native_validate/ph_e3
+native_validate/ph_emu
+native_validate/ph_n3
+native_validate/ph_nat
+native_validate/prof_host
+native_validate/prof_host_native
+native_validate/prof_var
+native_validate/tb
+native_validate/tf_bisect
+native_validate/tf_e3
+native_validate/tf_emu
+native_validate/tf_emu2
+native_validate/tf_fix
+native_validate/tf_fix_on
+native_validate/tf_n3
+native_validate/tf_nat2
+native_validate/tf_native
+native_validate/tf_none
+native_validate/tf_prof_off
+native_validate/tf_prof_on
+
+# build log: 380 KB of repeated g++ invocations, not a measurement record
+cvxif/verilate.log
+
+# Verilator model binaries and their backups: regenerable, ~4 MB each
+Variane_testharness*
+
+cvxif/overhead/runA.log
+cvxif/overhead/runB.log
+
+# Working notes and follow-on work: kept locally, not published.
+docs/
+cvxif/

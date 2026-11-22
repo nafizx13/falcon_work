@@ -1,0 +1,16 @@
+Falcon parameter set: Falcon-1024
+logn: 10
+
+CVA6 commit:
+6cb200105fb9441d170e45786125a737fab98e91
+
+CVA6 target:
+cv64a6_imafdc_sv39
+
+Compiler:
+riscv64-unknown-elf-gcc (g6afcc4f6d) 16.1.0
+
+Spike:
+
+Falcon key header SHA256:
+8d60296db582c8b6743d3b4bd00283733112931c1448003cc745889f9801ab2b  /home/abrar/falcon-work/falcon_prof/falcon_key.h

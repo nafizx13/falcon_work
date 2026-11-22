@@ -1,0 +1,54 @@
+diff --git a/vendor/riscv/riscv-isa-sim/riscv/Proc.cc b/vendor/riscv/riscv-isa-sim/riscv/Proc.cc
+index 3fcc1f58..08a3cb62 100644
+--- a/vendor/riscv/riscv-isa-sim/riscv/Proc.cc
++++ b/vendor/riscv/riscv-isa-sim/riscv/Proc.cc
+@@ -17,7 +17,7 @@
+ #include <string>
+ 
+ namespace openhw {
+-st_rvfi Processor::step(size_t n, st_rvfi reference_) {
++st_rvfi Processor::step(size_t n, const st_rvfi &reference_) {   // PATCHED: by const ref
+   st_rvfi rvfi;
+ 
+   this->reference = & reference_;
+diff --git a/vendor/riscv/riscv-isa-sim/riscv/Proc.h b/vendor/riscv/riscv-isa-sim/riscv/Proc.h
+index dfd19c31..6447aae9 100644
+--- a/vendor/riscv/riscv-isa-sim/riscv/Proc.h
++++ b/vendor/riscv/riscv-isa-sim/riscv/Proc.h
+@@ -21,7 +21,7 @@ public:
+             Params &params_); // because of command line option --log and -s we
+                              // need both
+   ~Processor();
+-  st_rvfi step(size_t n, st_rvfi reference);
++  st_rvfi step(size_t n, const st_rvfi &reference);   // PATCHED: was by value (192 KB copy per instruction)
+ 
+   static void default_params(string base, openhw::Params &params, openhw::Processor *proc);
+ 
+@@ -67,7 +67,7 @@ protected:
+ 
+   string base;
+   virtual void take_trap(trap_t &t, reg_t epc); // take an exception
+-  st_rvfi *reference;
++  const st_rvfi *reference;   // PATCHED: const, now points at caller's object
+   st_rvfi *step_rvfi;
+ 
+   commit_log_reg_t last_log_reg_write;
+diff --git a/vendor/riscv/riscv-isa-sim/riscv/Simulation.cc b/vendor/riscv/riscv-isa-sim/riscv/Simulation.cc
+index d960966c..9216db47 100644
+--- a/vendor/riscv/riscv-isa-sim/riscv/Simulation.cc
++++ b/vendor/riscv/riscv-isa-sim/riscv/Simulation.cc
+@@ -132,10 +132,11 @@ Simulation::~Simulation() {
+ 
+ int Simulation::run() {
+   try {
++    // PATCHED: these were constructed and destroyed every instruction.
++    // sizeof(st_rvfi) is ~192 KB, so that was ~1 MB of cache-missing
++    // memory traffic per simulated instruction.  Hoisted out of the loop.
++    std::vector<st_rvfi> vreference(1), vspike;
+     while (!sim_t::done()) {
+-      st_rvfi reference;
+-      std::vector<st_rvfi> vreference, vspike;
+-      vreference.push_back(reference);
+       vspike = this->step(1, vreference);
+     }
+   } catch (std::ios_base::failure e) {

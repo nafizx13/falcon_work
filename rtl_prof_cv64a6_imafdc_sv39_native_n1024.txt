@@ -1,0 +1,30 @@
+BENCH_SIGN_PROF_START
+prof_pair_x1000=11077
+phase=sign
+sign_rc=0
+sign_cycles=8653285
+sign_instr=7162979
+sig_len=1280
+SIG_CHECKSUM=987137927
+SEG sign_dyn cyc=7091773 calls=1 meas=1
+SEG do_sign_dyn cyc=7077037 calls=1 meas=1
+SEG ffsampling cyc=5625589 calls=2047 meas=1
+SEG samplerz cyc=3278382 calls=2048 meas=2048
+SEG gauss0 cyc=2188310 calls=3496 meas=3496
+SEG berexp cyc=601735 calls=3496 meas=3496
+SEG expm cyc=395079 calls=3496 meas=3496
+SEG fft cyc=626551 calls=9 meas=9
+SEG ifft cyc=160167 calls=2 meas=2
+SEG hash2pt cyc=189592 calls=1 meas=1
+SEG keccak cyc=89556 calls=17 meas=17
+SEG prng_refill cyc=1051134 calls=76 meas=76
+SEG prng_in_gauss0 cyc=1036972 calls=75 meas=75
+SEG prng_in_berexp cyc=0 calls=0 meas=0
+SEG prng_in_sampz cyc=0 calls=0 meas=0
+phase=verify
+verify_rc=0
+verify_cycles=949863
+verify_instr=843139
+failures=0
+BENCH_RESULT=PASS
+BENCH_SIGN_PROF_DONE

@@ -1,0 +1,28 @@
+=== compiling ===
+   text	   data	    bss	    dec	    hex	filename
+  91526	     80	  40699	 132305	  204d1	/tmp/bench_sign.elf
+=== running spike (no trace) ===
+[Extension 'cv32a60x'] reset()
+[Extension 'cv32a60x'] reset()
+BENCH_SIGN_START
+logn=9
+counter_overhead_cycles=4
+privkey_checksum=4043509028
+pubkey_checksum=2049083884
+rcdt_zero_input=18
+rcdt_max_input=0
+phase=sign
+sign_rc=0
+sign_cycles=62770455
+sign_instr=62770455
+sig_len=666
+SIG_CHECKSUM=483600532
+phase=verify
+verify_rc=0
+verify_cycles=501547
+verify_instr=501547
+failures=0
+BENCH_RESULT=PASS
+BENCH_SIGN_DONE
+=== wall clock: 1603s ===
+=== saved to: /home/nafiz13/falcon-work/last_spike_run.log ===

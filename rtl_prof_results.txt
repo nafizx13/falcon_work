@@ -1,0 +1,33 @@
+/home/nafiz13/cva6//work-ver/Variane_testharness   +debug_disable=1 +time_out=400000000 +trace_limit=2000 +ntb_random_seed=2003801180 /home/nafiz13/cva6/verif/sim/out_2026-08-29/directed_tests/bench_sign_prof.o \
+  ++/home/nafiz13/cva6/verif/sim/out_2026-08-29/directed_tests/bench_sign_prof.o +elf_file=/home/nafiz13/cva6/verif/sim/out_2026-08-29/directed_tests/bench_sign_prof.o +core_name=cv32a60x +config_file=/home/nafiz13/cva6/config/gen_from_riscv_config/cv32a60x/spike/spike.yaml +tohost_addr=80001000 +signature=/home/nafiz13/cva6/verif/sim/out_2026-08-29/directed_tests/bench_sign_prof.o.signature_output +UVM_TESTNAME=uvmt_cva6_firmware_test_c +report_file=/home/nafiz13/cva6/verif/sim/out_2026-08-29/veri-testharness_sim/bench_sign_prof.cv32a60x.log.yaml +core_name=cv32a60x
+/home/nafiz13/cva6/verif/sim/out_2026-08-29/directed_tests/bench_sign_prof.o *** SUCCESS *** (tohost = 0) after 69820495 cycles
+BENCH_SIGN_PROF_START
+prof_pair_x1000=18102
+phase=sign
+sign_rc=0
+sign_cycles=69099939
+sign_instr=63340038
+sig_len=666
+SIG_CHECKSUM=483600532
+SEG sign_dyn cyc=68143687 calls=1 meas=1
+SEG do_sign_dyn cyc=68132076 calls=1 meas=1
+SEG ffsampling cyc=40197457 calls=1023 meas=1
+SEG samplerz cyc=8477180 calls=1024 meas=1024
+SEG gauss0 cyc=1160933 calls=1798 meas=1798
+SEG berexp cyc=3462143 calls=1798 meas=1798
+SEG expm cyc=1747915 calls=1798 meas=1798
+SEG fft cyc=18930409 calls=9 meas=9
+SEG ifft cyc=4472670 calls=2 meas=2
+SEG hash2pt cyc=320634 calls=1 meas=1
+SEG keccak cyc=302951 calls=9 meas=9
+SEG prng_refill cyc=439326 calls=40 meas=40
+phase=verify
+verify_rc=0
+verify_cycles=658103
+verify_instr=502040
+failures=0
+BENCH_RESULT=PASS
+BENCH_SIGN_PROF_DONE
+[ ! -f verilator.fst ] || mv verilator.fst `dirname /home/nafiz13/cva6/verif/sim/out_2026-08-29/veri-testharness_sim/bench_sign_prof.cv32a60x.log`/`basename /home/nafiz13/cva6/verif/sim/out_2026-08-29/veri-testharness_sim/bench_sign_prof.cv32a60x.log .log`.fst
+[ ! -f verilator.vcd ] || mv verilator.vcd `dirname /home/nafiz13/cva6/verif/sim/out_2026-08-29/veri-testharness_sim/bench_sign_prof.cv32a60x.log`/`basename /home/nafiz13/cva6/verif/sim/out_2026-08-29/veri-testharness_sim/bench_sign_prof.cv32a60x.log .log`.vcd
+/home/nafiz13/cva6/tools/spike/bin/spike-dasm --isa=rv32imc_zba_zbb_zbs_zbc_zicsr_zifencei < ./trace_rvfi_hart_00.dasm > /home/nafiz13/cva6/verif/sim/out_2026-08-29/veri-testharness_sim/bench_sign_prof.cv32a60x.log

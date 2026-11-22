@@ -1,0 +1,1727 @@
+#define BIG_ENDIAN __BIG_ENDIAN
+#define BUFSIZ 8192
+#define BYTE_ORDER __BYTE_ORDER
+#define CLOCKS_PER_SEC ((__clock_t) 1000000)
+#define CLOCK_BOOTTIME 7
+#define CLOCK_BOOTTIME_ALARM 9
+#define CLOCK_MONOTONIC 1
+#define CLOCK_MONOTONIC_COARSE 6
+#define CLOCK_MONOTONIC_RAW 4
+#define CLOCK_PROCESS_CPUTIME_ID 2
+#define CLOCK_REALTIME 0
+#define CLOCK_REALTIME_ALARM 8
+#define CLOCK_REALTIME_COARSE 5
+#define CLOCK_TAI 11
+#define CLOCK_THREAD_CPUTIME_ID 3
+#define DO_NIST_TESTS 1
+#define EOF (-1)
+#define EXIT_FAILURE 1
+#define EXIT_SUCCESS 0
+#define FALCON_ASM_CORTEXM4 0
+#define FALCON_AVX2 0
+#define FALCON_CONFIG_H__ 
+#define FALCON_ERR_BADARG -5
+#define FALCON_ERR_BADSIG -4
+#define FALCON_ERR_FORMAT -3
+#define FALCON_ERR_INTERNAL -6
+#define FALCON_ERR_RANDOM -1
+#define FALCON_ERR_SIZE -2
+#define FALCON_EXPANDEDKEY_SIZE(logn) (((8u * (logn) + 40) << (logn)) + 8)
+#define FALCON_FMA 0
+#define FALCON_FPEMU 0
+#define FALCON_FPNATIVE 1
+#define FALCON_H__ 
+#define FALCON_INNER_H__ 
+#define FALCON_KEYGEN_TEMP_1 136
+#define FALCON_KEYGEN_TEMP_10 28672
+#define FALCON_KEYGEN_TEMP_2 272
+#define FALCON_KEYGEN_TEMP_3 224
+#define FALCON_KEYGEN_TEMP_4 448
+#define FALCON_KEYGEN_TEMP_5 896
+#define FALCON_KEYGEN_TEMP_6 1792
+#define FALCON_KEYGEN_TEMP_7 3584
+#define FALCON_KEYGEN_TEMP_8 7168
+#define FALCON_KEYGEN_TEMP_9 14336
+#define FALCON_KG_CHACHA20 0
+#define FALCON_LE 1
+#define FALCON_PREFIX falcon_inner
+#define FALCON_PRIVKEY_SIZE(logn) (((logn) <= 3 ? (3u << (logn)) : ((10u - ((logn) >> 1)) << ((logn) - 2)) + (1 << (logn))) + 1)
+#define FALCON_PUBKEY_SIZE(logn) (((logn) <= 1 ? 4u : (7u << ((logn) - 2))) + 1)
+#define FALCON_RAND_GETENTROPY 1
+#define FALCON_RAND_URANDOM 1
+#define FALCON_RAND_WIN32 0
+#define FALCON_SIG_COMPRESSED 1
+#define FALCON_SIG_COMPRESSED_MAXSIZE(logn) (((((11u << (logn)) + (101u >> (10 - (logn)))) + 7) >> 3) + 41)
+#define FALCON_SIG_CT 3
+#define FALCON_SIG_CT_SIZE(logn) ((3u << ((logn) - 1)) - ((logn) == 3) + 41)
+#define FALCON_SIG_PADDED 2
+#define FALCON_SIG_PADDED_SIZE(logn) (44u + 3 * (256u >> (10 - (logn))) + 2 * (128u >> (10 - (logn))) + 3 * (64u >> (10 - (logn))) + 2 * (16u >> (10 - (logn))) - 2 * (2u >> (10 - (logn))) - 8 * (1u >> (10 - (logn))))
+#define FALCON_TMPSIZE_EXPANDPRIV(logn) ((52u << (logn)) + 7)
+#define FALCON_TMPSIZE_KEYGEN(logn) (((logn) <= 3 ? 272u : (28u << (logn))) + (3u << (logn)) + 7)
+#define FALCON_TMPSIZE_MAKEPUB(logn) ((6u << (logn)) + 1)
+#define FALCON_TMPSIZE_SIGNDYN(logn) ((78u << (logn)) + 7)
+#define FALCON_TMPSIZE_SIGNTREE(logn) ((50u << (logn)) + 7)
+#define FALCON_TMPSIZE_VERIFY(logn) ((8u << (logn)) + 1)
+#define FALCON_UNALIGNED 1
+#define FD_CLR(fd,fdsetp) __FD_CLR (fd, fdsetp)
+#define FD_ISSET(fd,fdsetp) __FD_ISSET (fd, fdsetp)
+#define FD_SET(fd,fdsetp) __FD_SET (fd, fdsetp)
+#define FD_SETSIZE __FD_SETSIZE
+#define FD_ZERO(fdsetp) __FD_ZERO (fdsetp)
+#define FILENAME_MAX 4096
+#define FOPEN_MAX 16
+#define FP_ILOGB0 (-2147483647 - 1)
+#define FP_ILOGBNAN (-2147483647 - 1)
+#define FP_INFINITE 1
+#define FP_NAN 0
+#define FP_NORMAL 4
+#define FP_SUBNORMAL 3
+#define FP_ZERO 2
+#define HUGE_VAL (__builtin_huge_val ())
+#define HUGE_VALF (__builtin_huge_valf ())
+#define HUGE_VALL (__builtin_huge_vall ())
+#define INFINITY (__builtin_inff ())
+#define INT16_C(c) c
+#define INT16_MAX (32767)
+#define INT16_MIN (-32767-1)
+#define INT32_C(c) c
+#define INT32_MAX (2147483647)
+#define INT32_MIN (-2147483647-1)
+#define INT64_C(c) c ## L
+#define INT64_MAX (__INT64_C(9223372036854775807))
+#define INT64_MIN (-__INT64_C(9223372036854775807)-1)
+#define INT8_C(c) c
+#define INT8_MAX (127)
+#define INT8_MIN (-128)
+#define INTMAX_C(c) c ## L
+#define INTMAX_MAX (__INT64_C(9223372036854775807))
+#define INTMAX_MIN (-__INT64_C(9223372036854775807)-1)
+#define INTPTR_MAX (9223372036854775807L)
+#define INTPTR_MIN (-9223372036854775807L-1)
+#define INT_FAST16_MAX (9223372036854775807L)
+#define INT_FAST16_MIN (-9223372036854775807L-1)
+#define INT_FAST32_MAX (9223372036854775807L)
+#define INT_FAST32_MIN (-9223372036854775807L-1)
+#define INT_FAST64_MAX (__INT64_C(9223372036854775807))
+#define INT_FAST64_MIN (-__INT64_C(9223372036854775807)-1)
+#define INT_FAST8_MAX (127)
+#define INT_FAST8_MIN (-128)
+#define INT_LEAST16_MAX (32767)
+#define INT_LEAST16_MIN (-32767-1)
+#define INT_LEAST32_MAX (2147483647)
+#define INT_LEAST32_MIN (-2147483647-1)
+#define INT_LEAST64_MAX (__INT64_C(9223372036854775807))
+#define INT_LEAST64_MIN (-__INT64_C(9223372036854775807)-1)
+#define INT_LEAST8_MAX (127)
+#define INT_LEAST8_MIN (-128)
+#define LITTLE_ENDIAN __LITTLE_ENDIAN
+#define L_ctermid 9
+#define L_tmpnam 20
+#define MATH_ERREXCEPT 2
+#define MATH_ERRNO 1
+#define MB_CUR_MAX (__ctype_get_mb_cur_max ())
+#define M_1_PI 0.31830988618379067154
+#define M_2_PI 0.63661977236758134308
+#define M_2_SQRTPI 1.12837916709551257390
+#define M_E 2.7182818284590452354
+#define M_LN10 2.30258509299404568402
+#define M_LN2 0.69314718055994530942
+#define M_LOG10E 0.43429448190325182765
+#define M_LOG2E 1.4426950408889634074
+#define M_PI 3.14159265358979323846
+#define M_PI_2 1.57079632679489661923
+#define M_PI_4 0.78539816339744830962
+#define M_SQRT1_2 0.70710678118654752440
+#define M_SQRT2 1.41421356237309504880
+#define NAN (__builtin_nanf (""))
+#define NFDBITS __NFDBITS
+#define NULL ((void *)0)
+#define PDP_ENDIAN __PDP_ENDIAN
+#define PTRDIFF_MAX (9223372036854775807L)
+#define PTRDIFF_MIN (-9223372036854775807L-1)
+#define P_tmpdir "/tmp"
+#define RAND_MAX 2147483647
+#define SEEK_CUR 1
+#define SEEK_END 2
+#define SEEK_SET 0
+#define SIG_ATOMIC_MAX (2147483647)
+#define SIG_ATOMIC_MIN (-2147483647-1)
+#define SIZE_MAX (18446744073709551615UL)
+#define SboxExt0(x) (Ssm0[x])
+#define SboxExt1(x) (rotr(Ssm0[x], 8))
+#define SboxExt2(x) (rotr(Ssm0[x], 16))
+#define SboxExt3(x) (rotr(Ssm0[x], 24))
+#define TARGET_AVX2 
+#define TIMER_ABSTIME 1
+#define TIME_UTC 1
+#define TMP_MAX 238328
+#define UINT16_C(c) c
+#define UINT16_MAX (65535)
+#define UINT32_C(c) c ## U
+#define UINT32_MAX (4294967295U)
+#define UINT64_C(c) c ## UL
+#define UINT64_MAX (__UINT64_C(18446744073709551615))
+#define UINT8_C(c) c
+#define UINT8_MAX (255)
+#define UINTMAX_C(c) c ## UL
+#define UINTMAX_MAX (__UINT64_C(18446744073709551615))
+#define UINTPTR_MAX (18446744073709551615UL)
+#define UINT_FAST16_MAX (18446744073709551615UL)
+#define UINT_FAST32_MAX (18446744073709551615UL)
+#define UINT_FAST64_MAX (__UINT64_C(18446744073709551615))
+#define UINT_FAST8_MAX (255)
+#define UINT_LEAST16_MAX (65535)
+#define UINT_LEAST32_MAX (4294967295U)
+#define UINT_LEAST64_MAX (__UINT64_C(18446744073709551615))
+#define UINT_LEAST8_MAX (255)
+#define WCHAR_MAX __WCHAR_MAX
+#define WCHAR_MIN __WCHAR_MIN
+#define WCONTINUED 8
+#define WEXITED 4
+#define WEXITSTATUS(status) __WEXITSTATUS (status)
+#define WIFCONTINUED(status) __WIFCONTINUED (status)
+#define WIFEXITED(status) __WIFEXITED (status)
+#define WIFSIGNALED(status) __WIFSIGNALED (status)
+#define WIFSTOPPED(status) __WIFSTOPPED (status)
+#define WINT_MAX (4294967295u)
+#define WINT_MIN (0u)
+#define WNOHANG 1
+#define WNOWAIT 0x01000000
+#define WSTOPPED 2
+#define WSTOPSIG(status) __WSTOPSIG (status)
+#define WTERMSIG(status) __WTERMSIG (status)
+#define WUNTRACED 2
+#define Zf(name) Zf_(FALCON_PREFIX, name)
+#define Zf_(prefix,name) Zf__(prefix, name)
+#define Zf__(prefix,name) prefix ## _ ## name
+#define _ADXINTRIN_H_INCLUDED 
+#define _ALLOCA_H 1
+#define _AMXBF16INTRIN_H_INCLUDED 
+#define _AMXCOMPLEXINTRIN_H_INCLUDED 
+#define _AMXFP16INTRIN_H_INCLUDED 
+#define _AMXINT8INTRIN_H_INCLUDED 
+#define _AMXTILEINTRIN_H_INCLUDED 
+#define _ANSI_STDDEF_H 
+#define _ATFILE_SOURCE 1
+#define _AVX2INTRIN_H_INCLUDED 
+#define _AVX5124FMAPSINTRIN_H_INCLUDED 
+#define _AVX5124VNNIWINTRIN_H_INCLUDED 
+#define _AVX512BF16INTRIN_H_INCLUDED 
+#define _AVX512BF16VLINTRIN_H_INCLUDED 
+#define _AVX512BITALGINTRIN_H_INCLUDED 
+#define _AVX512BWINTRIN_H_INCLUDED 
+#define _AVX512CDINTRIN_H_INCLUDED 
+#define _AVX512DQINTRIN_H_INCLUDED 
+#define _AVX512ERINTRIN_H_INCLUDED 
+#define _AVX512FINTRIN_H_INCLUDED 
+#define _AVX512IFMAINTRIN_H_INCLUDED 
+#define _AVX512IFMAVLINTRIN_H_INCLUDED 
+#define _AVX512PFINTRIN_H_INCLUDED 
+#define _AVX512VBMI2VLINTRIN_H_INCLUDED 
+#define _AVX512VBMIINTRIN_H_INCLUDED 
+#define _AVX512VBMIVLINTRIN_H_INCLUDED 
+#define _AVX512VLBWINTRIN_H_INCLUDED 
+#define _AVX512VLDQINTRIN_H_INCLUDED 
+#define _AVX512VLINTRIN_H_INCLUDED 
+#define _AVX512VNNIVLINTRIN_H_INCLUDED 
+#define _AVX512VP2INTERSECTINTRIN_H_INCLUDED 
+#define _AVX512VP2INTERSECTVLINTRIN_H_INCLUDED 
+#define _AVX512VPOPCNTDQINTRIN_H_INCLUDED 
+#define _AVX512VPOPCNTDQVLINTRIN_H_INCLUDED 
+#define _AVXIFMAINTRIN_H_INCLUDED 
+#define _AVXINTRIN_H_INCLUDED 
+#define _AVXNECONVERTINTRIN_H_INCLUDED 
+#define _AVXVNNIINT8INTRIN_H_INCLUDED 
+#define _AVXVNNIINTRIN_H_INCLUDED 
+#define _BITS_ATOMIC_WIDE_COUNTER_H 
+#define _BITS_BYTESWAP_H 1
+#define _BITS_ENDIANNESS_H 1
+#define _BITS_ENDIAN_H 1
+#define _BITS_FLOATN_COMMON_H 
+#define _BITS_FLOATN_H 
+#define _BITS_LIBM_SIMD_DECL_STUBS_H 1
+#define _BITS_PTHREADTYPES_ARCH_H 1
+#define _BITS_PTHREADTYPES_COMMON_H 1
+#define _BITS_SELECT_DECL_H 1
+#define _BITS_STDINT_INTN_H 1
+#define _BITS_STDINT_LEAST_H 1
+#define _BITS_STDINT_UINTN_H 1
+#define _BITS_STDIO2_DEC_H 1
+#define _BITS_STDIO2_H 1
+#define _BITS_STDIO_H 1
+#define _BITS_STDIO_LIM_H 1
+#define _BITS_STRING_FORTIFIED_H 1
+#define _BITS_TIME64_H 1
+#define _BITS_TIME_H 1
+#define _BITS_TYPESIZES_H 1
+#define _BITS_TYPES_H 1
+#define _BITS_TYPES_LOCALE_T_H 1
+#define _BITS_TYPES___LOCALE_T_H 1
+#define _BITS_UINTN_IDENTITY_H 1
+#define _BITS_WCHAR_H 1
+#define _BMI2INTRIN_H_INCLUDED 
+#define _BMIINTRIN_H_INCLUDED 
+#define _BSD_PTRDIFF_T_ 
+#define _BSD_SIZE_T_ 
+#define _BSD_SIZE_T_DEFINED_ 
+#define _CETINTRIN_H_INCLUDED 
+#define _CLDEMOTE_H_INCLUDED 
+#define _CLFLUSHOPTINTRIN_H_INCLUDED 
+#define _CLWBINTRIN_H_INCLUDED 
+#define _CLZEROINTRIN_H_INCLUDED 
+#define _CMPCCXADDINTRIN_H_INCLUDED 
+#define _CMP_EQ_OQ 0x00
+#define _CMP_EQ_OS 0x10
+#define _CMP_EQ_UQ 0x08
+#define _CMP_EQ_US 0x18
+#define _CMP_FALSE_OQ 0x0b
+#define _CMP_FALSE_OS 0x1b
+#define _CMP_GE_OQ 0x1d
+#define _CMP_GE_OS 0x0d
+#define _CMP_GT_OQ 0x1e
+#define _CMP_GT_OS 0x0e
+#define _CMP_LE_OQ 0x12
+#define _CMP_LE_OS 0x02
+#define _CMP_LT_OQ 0x11
+#define _CMP_LT_OS 0x01
+#define _CMP_NEQ_OQ 0x0c
+#define _CMP_NEQ_OS 0x1c
+#define _CMP_NEQ_UQ 0x04
+#define _CMP_NEQ_US 0x14
+#define _CMP_NGE_UQ 0x19
+#define _CMP_NGE_US 0x09
+#define _CMP_NGT_UQ 0x1a
+#define _CMP_NGT_US 0x0a
+#define _CMP_NLE_UQ 0x16
+#define _CMP_NLE_US 0x06
+#define _CMP_NLT_UQ 0x15
+#define _CMP_NLT_US 0x05
+#define _CMP_ORD_Q 0x07
+#define _CMP_ORD_S 0x17
+#define _CMP_TRUE_UQ 0x0f
+#define _CMP_TRUE_US 0x1f
+#define _CMP_UNORD_Q 0x03
+#define _CMP_UNORD_S 0x13
+#define _DEFAULT_SOURCE 1
+#define _EMMINTRIN_H_INCLUDED 
+#define _ENDIAN_H 1
+#define _ENQCMDINTRIN_H_INCLUDED 
+#define _F16CINTRIN_H_INCLUDED 
+#define _FEATURES_H 1
+#define _FMAINTRIN_H_INCLUDED 
+#define _FORTIFY_SOURCE 3
+#define _FXSRINTRIN_H_INCLUDED 
+#define _GCC_MAX_ALIGN_T 
+#define _GCC_PTRDIFF_T 
+#define _GCC_SIZE_T 
+#define _GCC_WCHAR_T 
+#define _GCC_WRAP_STDINT_H 
+#define _GFNIINTRIN_H_INCLUDED 
+#define _HRESETINTRIN_H_INCLUDED 
+#define _IMMINTRIN_H_INCLUDED 
+#define _IOFBF 0
+#define _IOLBF 1
+#define _IONBF 2
+#define _IO_EOF_SEEN 0x0010
+#define _IO_ERR_SEEN 0x0020
+#define _IO_USER_LOCK 0x8000
+#define _KEYLOCKERINTRIN_H_INCLUDED 
+#define _LP64 1
+#define _LWPINTRIN_H_INCLUDED 
+#define _LZCNTINTRIN_H_INCLUDED 
+#define _MATH_H 1
+#define _MMINTRIN_H_INCLUDED 
+#define _MM_CMPINT_EQ 0x0
+#define _MM_CMPINT_GE 0x5
+#define _MM_CMPINT_GT 0x6
+#define _MM_CMPINT_LE 0x2
+#define _MM_CMPINT_LT 0x1
+#define _MM_CMPINT_NE 0x4
+#define _MM_CMPINT_NLE 0x6
+#define _MM_CMPINT_NLT 0x5
+#define _MM_CMPINT_UNUSED 0x3
+#define _MM_DENORMALS_ZERO_MASK 0x0040
+#define _MM_DENORMALS_ZERO_OFF 0x0000
+#define _MM_DENORMALS_ZERO_ON 0x0040
+#define _MM_EXCEPT_DENORM 0x0002
+#define _MM_EXCEPT_DIV_ZERO 0x0004
+#define _MM_EXCEPT_INEXACT 0x0020
+#define _MM_EXCEPT_INVALID 0x0001
+#define _MM_EXCEPT_MASK 0x003f
+#define _MM_EXCEPT_OVERFLOW 0x0008
+#define _MM_EXCEPT_UNDERFLOW 0x0010
+#define _MM_EXTRACT_FLOAT(D,S,N) { (D) = __builtin_ia32_vec_ext_v4sf ((__v4sf)(S), (N)); }
+#define _MM_FLUSH_ZERO_MASK 0x8000
+#define _MM_FLUSH_ZERO_OFF 0x0000
+#define _MM_FLUSH_ZERO_ON 0x8000
+#define _MM_FROUND_CEIL (_MM_FROUND_TO_POS_INF | _MM_FROUND_RAISE_EXC)
+#define _MM_FROUND_CUR_DIRECTION 0x04
+#define _MM_FROUND_FLOOR (_MM_FROUND_TO_NEG_INF | _MM_FROUND_RAISE_EXC)
+#define _MM_FROUND_NEARBYINT (_MM_FROUND_CUR_DIRECTION | _MM_FROUND_NO_EXC)
+#define _MM_FROUND_NINT (_MM_FROUND_TO_NEAREST_INT | _MM_FROUND_RAISE_EXC)
+#define _MM_FROUND_NO_EXC 0x08
+#define _MM_FROUND_RAISE_EXC 0x00
+#define _MM_FROUND_RINT (_MM_FROUND_CUR_DIRECTION | _MM_FROUND_RAISE_EXC)
+#define _MM_FROUND_TO_NEAREST_INT 0x00
+#define _MM_FROUND_TO_NEG_INF 0x01
+#define _MM_FROUND_TO_POS_INF 0x02
+#define _MM_FROUND_TO_ZERO 0x03
+#define _MM_FROUND_TRUNC (_MM_FROUND_TO_ZERO | _MM_FROUND_RAISE_EXC)
+#define _MM_GET_DENORMALS_ZERO_MODE() (_mm_getcsr() & _MM_DENORMALS_ZERO_MASK)
+#define _MM_MALLOC_H_INCLUDED 
+#define _MM_MASK_DENORM 0x0100
+#define _MM_MASK_DIV_ZERO 0x0200
+#define _MM_MASK_INEXACT 0x1000
+#define _MM_MASK_INVALID 0x0080
+#define _MM_MASK_MASK 0x1f80
+#define _MM_MASK_OVERFLOW 0x0400
+#define _MM_MASK_UNDERFLOW 0x0800
+#define _MM_MK_INSERTPS_NDX(S,D,M) (((S) << 6) | ((D) << 4) | (M))
+#define _MM_PICK_OUT_PS(X,N) _mm_insert_ps (_mm_setzero_ps (), (X), _MM_MK_INSERTPS_NDX ((N), 0, 0x0e))
+#define _MM_ROUND_DOWN 0x2000
+#define _MM_ROUND_MASK 0x6000
+#define _MM_ROUND_NEAREST 0x0000
+#define _MM_ROUND_TOWARD_ZERO 0x6000
+#define _MM_ROUND_UP 0x4000
+#define _MM_SET_DENORMALS_ZERO_MODE(mode) _mm_setcsr ((_mm_getcsr () & ~_MM_DENORMALS_ZERO_MASK) | (mode))
+#define _MM_SHUFFLE(fp3,fp2,fp1,fp0) (((fp3) << 6) | ((fp2) << 4) | ((fp1) << 2) | (fp0))
+#define _MM_SHUFFLE2(fp1,fp0) (((fp1) << 1) | (fp0))
+#define _MM_TRANSPOSE4_PS(row0,row1,row2,row3) do { __v4sf __r0 = (row0), __r1 = (row1), __r2 = (row2), __r3 = (row3); __v4sf __t0 = __builtin_ia32_unpcklps (__r0, __r1); __v4sf __t1 = __builtin_ia32_unpcklps (__r2, __r3); __v4sf __t2 = __builtin_ia32_unpckhps (__r0, __r1); __v4sf __t3 = __builtin_ia32_unpckhps (__r2, __r3); (row0) = __builtin_ia32_movlhps (__t0, __t1); (row1) = __builtin_ia32_movhlps (__t1, __t0); (row2) = __builtin_ia32_movlhps (__t2, __t3); (row3) = __builtin_ia32_movhlps (__t3, __t2); } while (0)
+#define _MOVDIRINTRIN_H_INCLUDED 
+#define _MWAITINTRIN_H_INCLUDED 
+#define _MWAITXINTRIN_H_INCLUDED 
+#define _PCONFIGINTRIN_H_INCLUDED 
+#define _PKUINTRIN_H_INCLUDED 
+#define _PMMINTRIN_H_INCLUDED 
+#define _POPCNTINTRIN_H_INCLUDED 
+#define _POSIX_C_SOURCE 200809L
+#define _POSIX_SOURCE 1
+#define _PRFCHIINTRIN_H_INCLUDED 
+#define _PRFCHWINTRIN_H_INCLUDED 
+#define _PTRDIFF_T 
+#define _PTRDIFF_T_ 
+#define _PTRDIFF_T_DECLARED 
+#define _RDSEEDINTRIN_H_INCLUDED 
+#define _RTMINTRIN_H_INCLUDED 
+#define _RWLOCK_INTERNAL_H 
+#define _SERIALIZE_H_INCLUDED 
+#define _SGXINTRIN_H_INCLUDED 
+#define _SHAINTRIN_H_INCLUDED 
+#define _SIDD_BIT_MASK 0x00
+#define _SIDD_CMP_EQUAL_ANY 0x00
+#define _SIDD_CMP_EQUAL_EACH 0x08
+#define _SIDD_CMP_EQUAL_ORDERED 0x0c
+#define _SIDD_CMP_RANGES 0x04
+#define _SIDD_LEAST_SIGNIFICANT 0x00
+#define _SIDD_MASKED_NEGATIVE_POLARITY 0x30
+#define _SIDD_MASKED_POSITIVE_POLARITY 0x20
+#define _SIDD_MOST_SIGNIFICANT 0x40
+#define _SIDD_NEGATIVE_POLARITY 0x10
+#define _SIDD_POSITIVE_POLARITY 0x00
+#define _SIDD_SBYTE_OPS 0x02
+#define _SIDD_SWORD_OPS 0x03
+#define _SIDD_UBYTE_OPS 0x00
+#define _SIDD_UNIT_MASK 0x40
+#define _SIDD_UWORD_OPS 0x01
+#define _SIGSET_NWORDS (1024 / (8 * sizeof (unsigned long int)))
+#define _SIZET_ 
+#define _SIZE_T 
+#define _SIZE_T_ 
+#define _SIZE_T_DECLARED 
+#define _SIZE_T_DEFINED 
+#define _SIZE_T_DEFINED_ 
+#define _SMMINTRIN_H_INCLUDED 
+#define _STDC_PREDEF_H 1
+#define _STDDEF_H 
+#define _STDDEF_H_ 
+#define _STDINT_H 1
+#define _STDIO_H 1
+#define _STDLIB_H 1
+#define _STRINGS_H 1
+#define _STRING_H 1
+#define _STRUCT_TIMESPEC 1
+#define _SYS_CDEFS_H 1
+#define _SYS_SELECT_H 1
+#define _SYS_SIZE_T_H 
+#define _SYS_TYPES_H 1
+#define _TBMINTRIN_H_INCLUDED 
+#define _THREAD_MUTEX_INTERNAL_H 1
+#define _THREAD_SHARED_TYPES_H 1
+#define _TIME_H 1
+#define _TMMINTRIN_H_INCLUDED 
+#define _TSXLDTRKINTRIN_H_INCLUDED 
+#define _T_PTRDIFF 
+#define _T_PTRDIFF_ 
+#define _T_SIZE 
+#define _T_SIZE_ 
+#define _T_WCHAR 
+#define _T_WCHAR_ 
+#define _UINTRNTRIN_H_INCLUDED 
+#define _VA_LIST_DEFINED 
+#define _VPCLMULQDQINTRIN_H_INCLUDED 
+#define _WAITPKG_H_INCLUDED 
+#define _WBNOINVDINTRIN_H_INCLUDED 
+#define _WCHAR_T 
+#define _WCHAR_T_ 
+#define _WCHAR_T_DECLARED 
+#define _WCHAR_T_DEFINED 
+#define _WCHAR_T_DEFINED_ 
+#define _WCHAR_T_H 
+#define _WMMINTRIN_H_INCLUDED 
+#define _X86GPRINTRIN_H_INCLUDED 
+#define _XABORT_CAPACITY (1 << 3)
+#define _XABORT_CODE(x) (((x) >> 24) & 0xFF)
+#define _XABORT_CONFLICT (1 << 2)
+#define _XABORT_DEBUG (1 << 4)
+#define _XABORT_EXPLICIT (1 << 0)
+#define _XABORT_NESTED (1 << 5)
+#define _XABORT_RETRY (1 << 1)
+#define _XBEGIN_STARTED (~0u)
+#define _XMMINTRIN_H_INCLUDED 
+#define _XSAVECINTRIN_H_INCLUDED 
+#define _XSAVEINTRIN_H_INCLUDED 
+#define _XSAVEOPTINTRIN_H_INCLUDED 
+#define _XSAVESINTRIN_H_INCLUDED 
+#define _XTESTINTRIN_H_INCLUDED 
+#define __ASMNAME(cname) __ASMNAME2 (__USER_LABEL_PREFIX__, cname)
+#define __ASMNAME2(prefix,cname) __STRING (prefix) cname
+#define __ATOMIC_ACQUIRE 2
+#define __ATOMIC_ACQ_REL 4
+#define __ATOMIC_CONSUME 1
+#define __ATOMIC_HLE_ACQUIRE 65536
+#define __ATOMIC_HLE_RELEASE 131072
+#define __ATOMIC_RELAXED 0
+#define __ATOMIC_RELEASE 3
+#define __ATOMIC_SEQ_CST 5
+#define __AVX512FP16INTRIN_H_INCLUDED 
+#define __AVX512FP16VLINTRIN_H_INCLUDED 
+#define __AVX512VBMI2INTRIN_H_INCLUDED 
+#define __AVX512VNNIINTRIN_H_INCLUDED 
+#define __BEGIN_DECLS 
+#define __BFLT16_DECIMAL_DIG__ 4
+#define __BFLT16_DENORM_MIN__ 9.18354961579912115600575419704879436e-41BF16
+#define __BFLT16_DIG__ 2
+#define __BFLT16_EPSILON__ 7.81250000000000000000000000000000000e-3BF16
+#define __BFLT16_HAS_DENORM__ 1
+#define __BFLT16_HAS_INFINITY__ 1
+#define __BFLT16_HAS_QUIET_NAN__ 1
+#define __BFLT16_IS_IEC_60559__ 0
+#define __BFLT16_MANT_DIG__ 8
+#define __BFLT16_MAX_10_EXP__ 38
+#define __BFLT16_MAX_EXP__ 128
+#define __BFLT16_MAX__ 3.38953138925153547590470800371487867e+38BF16
+#define __BFLT16_MIN_10_EXP__ (-37)
+#define __BFLT16_MIN_EXP__ (-125)
+#define __BFLT16_MIN__ 1.17549435082228750796873653722224568e-38BF16
+#define __BFLT16_NORM_MAX__ 3.38953138925153547590470800371487867e+38BF16
+#define __BIGGEST_ALIGNMENT__ 16
+#define __BIG_ENDIAN 4321
+#define __BIT_TYPES_DEFINED__ 1
+#define __BLKCNT64_T_TYPE __SQUAD_TYPE
+#define __BLKCNT_T_TYPE __SYSCALL_SLONG_TYPE
+#define __BLKSIZE_T_TYPE __SYSCALL_SLONG_TYPE
+#define __BYTE_ORDER __LITTLE_ENDIAN
+#define __BYTE_ORDER__ __ORDER_LITTLE_ENDIAN__
+#define __CET__ 3
+#define __CFLOAT128 _Complex _Float128
+#define __CFLOAT32 _Complex _Float32
+#define __CFLOAT32X _Complex _Float32x
+#define __CFLOAT64 _Complex _Float64
+#define __CFLOAT64X _Complex _Float64x
+#define __CHAR16_TYPE__ short unsigned int
+#define __CHAR32_TYPE__ unsigned int
+#define __CHAR_BIT__ 8
+#define __CLOCKID_T_TYPE __S32_TYPE
+#define __CLOCK_T_TYPE __SYSCALL_SLONG_TYPE
+#define __COLD __attribute__ ((__cold__))
+#define __COMPAR_FN_T 
+#define __CONCAT(x,y) x ## y
+#define __CPU_MASK_TYPE __SYSCALL_ULONG_TYPE
+#define __DADDR_T_TYPE __S32_TYPE
+#define __DBL_DECIMAL_DIG__ 17
+#define __DBL_DENORM_MIN__ ((double)4.94065645841246544176568792868221372e-324L)
+#define __DBL_DIG__ 15
+#define __DBL_EPSILON__ ((double)2.22044604925031308084726333618164062e-16L)
+#define __DBL_HAS_DENORM__ 1
+#define __DBL_HAS_INFINITY__ 1
+#define __DBL_HAS_QUIET_NAN__ 1
+#define __DBL_IS_IEC_60559__ 1
+#define __DBL_MANT_DIG__ 53
+#define __DBL_MAX_10_EXP__ 308
+#define __DBL_MAX_EXP__ 1024
+#define __DBL_MAX__ ((double)1.79769313486231570814527423731704357e+308L)
+#define __DBL_MIN_10_EXP__ (-307)
+#define __DBL_MIN_EXP__ (-1021)
+#define __DBL_MIN__ ((double)2.22507385850720138309023271733240406e-308L)
+#define __DBL_NORM_MAX__ ((double)1.79769313486231570814527423731704357e+308L)
+#define __DEC128_EPSILON__ 1E-33DL
+#define __DEC128_MANT_DIG__ 34
+#define __DEC128_MAX_EXP__ 6145
+#define __DEC128_MAX__ 9.999999999999999999999999999999999E6144DL
+#define __DEC128_MIN_EXP__ (-6142)
+#define __DEC128_MIN__ 1E-6143DL
+#define __DEC128_SUBNORMAL_MIN__ 0.000000000000000000000000000000001E-6143DL
+#define __DEC32_EPSILON__ 1E-6DF
+#define __DEC32_MANT_DIG__ 7
+#define __DEC32_MAX_EXP__ 97
+#define __DEC32_MAX__ 9.999999E96DF
+#define __DEC32_MIN_EXP__ (-94)
+#define __DEC32_MIN__ 1E-95DF
+#define __DEC32_SUBNORMAL_MIN__ 0.000001E-95DF
+#define __DEC64_EPSILON__ 1E-15DD
+#define __DEC64_MANT_DIG__ 16
+#define __DEC64_MAX_EXP__ 385
+#define __DEC64_MAX__ 9.999999999999999E384DD
+#define __DEC64_MIN_EXP__ (-382)
+#define __DEC64_MIN__ 1E-383DD
+#define __DEC64_SUBNORMAL_MIN__ 0.000000000000001E-383DD
+#define __DECIMAL_BID_FORMAT__ 1
+#define __DECIMAL_DIG__ 21
+#define __DECL_SIMD_acos 
+#define __DECL_SIMD_acosf 
+#define __DECL_SIMD_acosf128 
+#define __DECL_SIMD_acosf128x 
+#define __DECL_SIMD_acosf16 
+#define __DECL_SIMD_acosf32 
+#define __DECL_SIMD_acosf32x 
+#define __DECL_SIMD_acosf64 
+#define __DECL_SIMD_acosf64x 
+#define __DECL_SIMD_acosh 
+#define __DECL_SIMD_acoshf 
+#define __DECL_SIMD_acoshf128 
+#define __DECL_SIMD_acoshf128x 
+#define __DECL_SIMD_acoshf16 
+#define __DECL_SIMD_acoshf32 
+#define __DECL_SIMD_acoshf32x 
+#define __DECL_SIMD_acoshf64 
+#define __DECL_SIMD_acoshf64x 
+#define __DECL_SIMD_acoshl 
+#define __DECL_SIMD_acosl 
+#define __DECL_SIMD_asin 
+#define __DECL_SIMD_asinf 
+#define __DECL_SIMD_asinf128 
+#define __DECL_SIMD_asinf128x 
+#define __DECL_SIMD_asinf16 
+#define __DECL_SIMD_asinf32 
+#define __DECL_SIMD_asinf32x 
+#define __DECL_SIMD_asinf64 
+#define __DECL_SIMD_asinf64x 
+#define __DECL_SIMD_asinh 
+#define __DECL_SIMD_asinhf 
+#define __DECL_SIMD_asinhf128 
+#define __DECL_SIMD_asinhf128x 
+#define __DECL_SIMD_asinhf16 
+#define __DECL_SIMD_asinhf32 
+#define __DECL_SIMD_asinhf32x 
+#define __DECL_SIMD_asinhf64 
+#define __DECL_SIMD_asinhf64x 
+#define __DECL_SIMD_asinhl 
+#define __DECL_SIMD_asinl 
+#define __DECL_SIMD_atan 
+#define __DECL_SIMD_atan2 
+#define __DECL_SIMD_atan2f 
+#define __DECL_SIMD_atan2f128 
+#define __DECL_SIMD_atan2f128x 
+#define __DECL_SIMD_atan2f16 
+#define __DECL_SIMD_atan2f32 
+#define __DECL_SIMD_atan2f32x 
+#define __DECL_SIMD_atan2f64 
+#define __DECL_SIMD_atan2f64x 
+#define __DECL_SIMD_atan2l 
+#define __DECL_SIMD_atanf 
+#define __DECL_SIMD_atanf128 
+#define __DECL_SIMD_atanf128x 
+#define __DECL_SIMD_atanf16 
+#define __DECL_SIMD_atanf32 
+#define __DECL_SIMD_atanf32x 
+#define __DECL_SIMD_atanf64 
+#define __DECL_SIMD_atanf64x 
+#define __DECL_SIMD_atanh 
+#define __DECL_SIMD_atanhf 
+#define __DECL_SIMD_atanhf128 
+#define __DECL_SIMD_atanhf128x 
+#define __DECL_SIMD_atanhf16 
+#define __DECL_SIMD_atanhf32 
+#define __DECL_SIMD_atanhf32x 
+#define __DECL_SIMD_atanhf64 
+#define __DECL_SIMD_atanhf64x 
+#define __DECL_SIMD_atanhl 
+#define __DECL_SIMD_atanl 
+#define __DECL_SIMD_cbrt 
+#define __DECL_SIMD_cbrtf 
+#define __DECL_SIMD_cbrtf128 
+#define __DECL_SIMD_cbrtf128x 
+#define __DECL_SIMD_cbrtf16 
+#define __DECL_SIMD_cbrtf32 
+#define __DECL_SIMD_cbrtf32x 
+#define __DECL_SIMD_cbrtf64 
+#define __DECL_SIMD_cbrtf64x 
+#define __DECL_SIMD_cbrtl 
+#define __DECL_SIMD_cos 
+#define __DECL_SIMD_cosf 
+#define __DECL_SIMD_cosf128 
+#define __DECL_SIMD_cosf128x 
+#define __DECL_SIMD_cosf16 
+#define __DECL_SIMD_cosf32 
+#define __DECL_SIMD_cosf32x 
+#define __DECL_SIMD_cosf64 
+#define __DECL_SIMD_cosf64x 
+#define __DECL_SIMD_cosh 
+#define __DECL_SIMD_coshf 
+#define __DECL_SIMD_coshf128 
+#define __DECL_SIMD_coshf128x 
+#define __DECL_SIMD_coshf16 
+#define __DECL_SIMD_coshf32 
+#define __DECL_SIMD_coshf32x 
+#define __DECL_SIMD_coshf64 
+#define __DECL_SIMD_coshf64x 
+#define __DECL_SIMD_coshl 
+#define __DECL_SIMD_cosl 
+#define __DECL_SIMD_erf 
+#define __DECL_SIMD_erfc 
+#define __DECL_SIMD_erfcf 
+#define __DECL_SIMD_erfcf128 
+#define __DECL_SIMD_erfcf128x 
+#define __DECL_SIMD_erfcf16 
+#define __DECL_SIMD_erfcf32 
+#define __DECL_SIMD_erfcf32x 
+#define __DECL_SIMD_erfcf64 
+#define __DECL_SIMD_erfcf64x 
+#define __DECL_SIMD_erfcl 
+#define __DECL_SIMD_erff 
+#define __DECL_SIMD_erff128 
+#define __DECL_SIMD_erff128x 
+#define __DECL_SIMD_erff16 
+#define __DECL_SIMD_erff32 
+#define __DECL_SIMD_erff32x 
+#define __DECL_SIMD_erff64 
+#define __DECL_SIMD_erff64x 
+#define __DECL_SIMD_erfl 
+#define __DECL_SIMD_exp 
+#define __DECL_SIMD_exp10 
+#define __DECL_SIMD_exp10f 
+#define __DECL_SIMD_exp10f128 
+#define __DECL_SIMD_exp10f128x 
+#define __DECL_SIMD_exp10f16 
+#define __DECL_SIMD_exp10f32 
+#define __DECL_SIMD_exp10f32x 
+#define __DECL_SIMD_exp10f64 
+#define __DECL_SIMD_exp10f64x 
+#define __DECL_SIMD_exp10l 
+#define __DECL_SIMD_exp2 
+#define __DECL_SIMD_exp2f 
+#define __DECL_SIMD_exp2f128 
+#define __DECL_SIMD_exp2f128x 
+#define __DECL_SIMD_exp2f16 
+#define __DECL_SIMD_exp2f32 
+#define __DECL_SIMD_exp2f32x 
+#define __DECL_SIMD_exp2f64 
+#define __DECL_SIMD_exp2f64x 
+#define __DECL_SIMD_exp2l 
+#define __DECL_SIMD_expf 
+#define __DECL_SIMD_expf128 
+#define __DECL_SIMD_expf128x 
+#define __DECL_SIMD_expf16 
+#define __DECL_SIMD_expf32 
+#define __DECL_SIMD_expf32x 
+#define __DECL_SIMD_expf64 
+#define __DECL_SIMD_expf64x 
+#define __DECL_SIMD_expl 
+#define __DECL_SIMD_expm1 
+#define __DECL_SIMD_expm1f 
+#define __DECL_SIMD_expm1f128 
+#define __DECL_SIMD_expm1f128x 
+#define __DECL_SIMD_expm1f16 
+#define __DECL_SIMD_expm1f32 
+#define __DECL_SIMD_expm1f32x 
+#define __DECL_SIMD_expm1f64 
+#define __DECL_SIMD_expm1f64x 
+#define __DECL_SIMD_expm1l 
+#define __DECL_SIMD_hypot 
+#define __DECL_SIMD_hypotf 
+#define __DECL_SIMD_hypotf128 
+#define __DECL_SIMD_hypotf128x 
+#define __DECL_SIMD_hypotf16 
+#define __DECL_SIMD_hypotf32 
+#define __DECL_SIMD_hypotf32x 
+#define __DECL_SIMD_hypotf64 
+#define __DECL_SIMD_hypotf64x 
+#define __DECL_SIMD_hypotl 
+#define __DECL_SIMD_log 
+#define __DECL_SIMD_log10 
+#define __DECL_SIMD_log10f 
+#define __DECL_SIMD_log10f128 
+#define __DECL_SIMD_log10f128x 
+#define __DECL_SIMD_log10f16 
+#define __DECL_SIMD_log10f32 
+#define __DECL_SIMD_log10f32x 
+#define __DECL_SIMD_log10f64 
+#define __DECL_SIMD_log10f64x 
+#define __DECL_SIMD_log10l 
+#define __DECL_SIMD_log1p 
+#define __DECL_SIMD_log1pf 
+#define __DECL_SIMD_log1pf128 
+#define __DECL_SIMD_log1pf128x 
+#define __DECL_SIMD_log1pf16 
+#define __DECL_SIMD_log1pf32 
+#define __DECL_SIMD_log1pf32x 
+#define __DECL_SIMD_log1pf64 
+#define __DECL_SIMD_log1pf64x 
+#define __DECL_SIMD_log1pl 
+#define __DECL_SIMD_log2 
+#define __DECL_SIMD_log2f 
+#define __DECL_SIMD_log2f128 
+#define __DECL_SIMD_log2f128x 
+#define __DECL_SIMD_log2f16 
+#define __DECL_SIMD_log2f32 
+#define __DECL_SIMD_log2f32x 
+#define __DECL_SIMD_log2f64 
+#define __DECL_SIMD_log2f64x 
+#define __DECL_SIMD_log2l 
+#define __DECL_SIMD_logf 
+#define __DECL_SIMD_logf128 
+#define __DECL_SIMD_logf128x 
+#define __DECL_SIMD_logf16 
+#define __DECL_SIMD_logf32 
+#define __DECL_SIMD_logf32x 
+#define __DECL_SIMD_logf64 
+#define __DECL_SIMD_logf64x 
+#define __DECL_SIMD_logl 
+#define __DECL_SIMD_pow 
+#define __DECL_SIMD_powf 
+#define __DECL_SIMD_powf128 
+#define __DECL_SIMD_powf128x 
+#define __DECL_SIMD_powf16 
+#define __DECL_SIMD_powf32 
+#define __DECL_SIMD_powf32x 
+#define __DECL_SIMD_powf64 
+#define __DECL_SIMD_powf64x 
+#define __DECL_SIMD_powl 
+#define __DECL_SIMD_sin 
+#define __DECL_SIMD_sincos 
+#define __DECL_SIMD_sincosf 
+#define __DECL_SIMD_sincosf128 
+#define __DECL_SIMD_sincosf128x 
+#define __DECL_SIMD_sincosf16 
+#define __DECL_SIMD_sincosf32 
+#define __DECL_SIMD_sincosf32x 
+#define __DECL_SIMD_sincosf64 
+#define __DECL_SIMD_sincosf64x 
+#define __DECL_SIMD_sincosl 
+#define __DECL_SIMD_sinf 
+#define __DECL_SIMD_sinf128 
+#define __DECL_SIMD_sinf128x 
+#define __DECL_SIMD_sinf16 
+#define __DECL_SIMD_sinf32 
+#define __DECL_SIMD_sinf32x 
+#define __DECL_SIMD_sinf64 
+#define __DECL_SIMD_sinf64x 
+#define __DECL_SIMD_sinh 
+#define __DECL_SIMD_sinhf 
+#define __DECL_SIMD_sinhf128 
+#define __DECL_SIMD_sinhf128x 
+#define __DECL_SIMD_sinhf16 
+#define __DECL_SIMD_sinhf32 
+#define __DECL_SIMD_sinhf32x 
+#define __DECL_SIMD_sinhf64 
+#define __DECL_SIMD_sinhf64x 
+#define __DECL_SIMD_sinhl 
+#define __DECL_SIMD_sinl 
+#define __DECL_SIMD_tan 
+#define __DECL_SIMD_tanf 
+#define __DECL_SIMD_tanf128 
+#define __DECL_SIMD_tanf128x 
+#define __DECL_SIMD_tanf16 
+#define __DECL_SIMD_tanf32 
+#define __DECL_SIMD_tanf32x 
+#define __DECL_SIMD_tanf64 
+#define __DECL_SIMD_tanf64x 
+#define __DECL_SIMD_tanh 
+#define __DECL_SIMD_tanhf 
+#define __DECL_SIMD_tanhf128 
+#define __DECL_SIMD_tanhf128x 
+#define __DECL_SIMD_tanhf16 
+#define __DECL_SIMD_tanhf32 
+#define __DECL_SIMD_tanhf32x 
+#define __DECL_SIMD_tanhf64 
+#define __DECL_SIMD_tanhf64x 
+#define __DECL_SIMD_tanhl 
+#define __DECL_SIMD_tanl 
+#define __DEC_EVAL_METHOD__ 2
+#define __DEFINED_ptrdiff_t 
+#define __DEFINED_size_t 
+#define __DEFINED_wchar_t 
+#define __DEV_T_TYPE __UQUAD_TYPE
+#define __DISABLE_AVX512VLCD__ 
+#define __ELF__ 1
+#define __END_DECLS 
+#define __FDS_BITS(set) ((set)->__fds_bits)
+#define __FD_CLR(d,s) ((void) (__FDS_BITS (s)[__FD_ELT(d)] &= ~__FD_MASK(d)))
+#define __FD_ELT(d) __extension__ ({ long int __d = (d); (__builtin_constant_p (__d) ? (0 <= __d && __d < __FD_SETSIZE ? (__d / __NFDBITS) : __fdelt_warn (__d)) : __fdelt_chk (__d)); })
+#define __FD_ISSET(d,s) ((__FDS_BITS (s)[__FD_ELT (d)] & __FD_MASK (d)) != 0)
+#define __FD_MASK(d) ((__fd_mask) (1UL << ((d) % __NFDBITS)))
+#define __FD_SET(d,s) ((void) (__FDS_BITS (s)[__FD_ELT(d)] |= __FD_MASK(d)))
+#define __FD_SETSIZE 1024
+#define __FD_ZERO(s) do { unsigned int __i; fd_set *__arr = (s); for (__i = 0; __i < sizeof (fd_set) / sizeof (__fd_mask); ++__i) __FDS_BITS (__arr)[__i] = 0; } while (0)
+#define __FILE_defined 1
+#define __FINITE_MATH_ONLY__ 0
+#define __FLOAT_WORD_ORDER __BYTE_ORDER
+#define __FLOAT_WORD_ORDER__ __ORDER_LITTLE_ENDIAN__
+#define __FLT128_DECIMAL_DIG__ 36
+#define __FLT128_DENORM_MIN__ 6.47517511943802511092443895822764655e-4966F128
+#define __FLT128_DIG__ 33
+#define __FLT128_EPSILON__ 1.92592994438723585305597794258492732e-34F128
+#define __FLT128_HAS_DENORM__ 1
+#define __FLT128_HAS_INFINITY__ 1
+#define __FLT128_HAS_QUIET_NAN__ 1
+#define __FLT128_IS_IEC_60559__ 1
+#define __FLT128_MANT_DIG__ 113
+#define __FLT128_MAX_10_EXP__ 4932
+#define __FLT128_MAX_EXP__ 16384
+#define __FLT128_MAX__ 1.18973149535723176508575932662800702e+4932F128
+#define __FLT128_MIN_10_EXP__ (-4931)
+#define __FLT128_MIN_EXP__ (-16381)
+#define __FLT128_MIN__ 3.36210314311209350626267781732175260e-4932F128
+#define __FLT128_NORM_MAX__ 1.18973149535723176508575932662800702e+4932F128
+#define __FLT16_DECIMAL_DIG__ 5
+#define __FLT16_DENORM_MIN__ 5.96046447753906250000000000000000000e-8F16
+#define __FLT16_DIG__ 3
+#define __FLT16_EPSILON__ 9.76562500000000000000000000000000000e-4F16
+#define __FLT16_HAS_DENORM__ 1
+#define __FLT16_HAS_INFINITY__ 1
+#define __FLT16_HAS_QUIET_NAN__ 1
+#define __FLT16_IS_IEC_60559__ 1
+#define __FLT16_MANT_DIG__ 11
+#define __FLT16_MAX_10_EXP__ 4
+#define __FLT16_MAX_EXP__ 16
+#define __FLT16_MAX__ 6.55040000000000000000000000000000000e+4F16
+#define __FLT16_MIN_10_EXP__ (-4)
+#define __FLT16_MIN_EXP__ (-13)
+#define __FLT16_MIN__ 6.10351562500000000000000000000000000e-5F16
+#define __FLT16_NORM_MAX__ 6.55040000000000000000000000000000000e+4F16
+#define __FLT32X_DECIMAL_DIG__ 17
+#define __FLT32X_DENORM_MIN__ 4.94065645841246544176568792868221372e-324F32x
+#define __FLT32X_DIG__ 15
+#define __FLT32X_EPSILON__ 2.22044604925031308084726333618164062e-16F32x
+#define __FLT32X_HAS_DENORM__ 1
+#define __FLT32X_HAS_INFINITY__ 1
+#define __FLT32X_HAS_QUIET_NAN__ 1
+#define __FLT32X_IS_IEC_60559__ 1
+#define __FLT32X_MANT_DIG__ 53
+#define __FLT32X_MAX_10_EXP__ 308
+#define __FLT32X_MAX_EXP__ 1024
+#define __FLT32X_MAX__ 1.79769313486231570814527423731704357e+308F32x
+#define __FLT32X_MIN_10_EXP__ (-307)
+#define __FLT32X_MIN_EXP__ (-1021)
+#define __FLT32X_MIN__ 2.22507385850720138309023271733240406e-308F32x
+#define __FLT32X_NORM_MAX__ 1.79769313486231570814527423731704357e+308F32x
+#define __FLT32_DECIMAL_DIG__ 9
+#define __FLT32_DENORM_MIN__ 1.40129846432481707092372958328991613e-45F32
+#define __FLT32_DIG__ 6
+#define __FLT32_EPSILON__ 1.19209289550781250000000000000000000e-7F32
+#define __FLT32_HAS_DENORM__ 1
+#define __FLT32_HAS_INFINITY__ 1
+#define __FLT32_HAS_QUIET_NAN__ 1
+#define __FLT32_IS_IEC_60559__ 1
+#define __FLT32_MANT_DIG__ 24
+#define __FLT32_MAX_10_EXP__ 38
+#define __FLT32_MAX_EXP__ 128
+#define __FLT32_MAX__ 3.40282346638528859811704183484516925e+38F32
+#define __FLT32_MIN_10_EXP__ (-37)
+#define __FLT32_MIN_EXP__ (-125)
+#define __FLT32_MIN__ 1.17549435082228750796873653722224568e-38F32
+#define __FLT32_NORM_MAX__ 3.40282346638528859811704183484516925e+38F32
+#define __FLT64X_DECIMAL_DIG__ 21
+#define __FLT64X_DENORM_MIN__ 3.64519953188247460252840593361941982e-4951F64x
+#define __FLT64X_DIG__ 18
+#define __FLT64X_EPSILON__ 1.08420217248550443400745280086994171e-19F64x
+#define __FLT64X_HAS_DENORM__ 1
+#define __FLT64X_HAS_INFINITY__ 1
+#define __FLT64X_HAS_QUIET_NAN__ 1
+#define __FLT64X_IS_IEC_60559__ 1
+#define __FLT64X_MANT_DIG__ 64
+#define __FLT64X_MAX_10_EXP__ 4932
+#define __FLT64X_MAX_EXP__ 16384
+#define __FLT64X_MAX__ 1.18973149535723176502126385303097021e+4932F64x
+#define __FLT64X_MIN_10_EXP__ (-4931)
+#define __FLT64X_MIN_EXP__ (-16381)
+#define __FLT64X_MIN__ 3.36210314311209350626267781732175260e-4932F64x
+#define __FLT64X_NORM_MAX__ 1.18973149535723176502126385303097021e+4932F64x
+#define __FLT64_DECIMAL_DIG__ 17
+#define __FLT64_DENORM_MIN__ 4.94065645841246544176568792868221372e-324F64
+#define __FLT64_DIG__ 15
+#define __FLT64_EPSILON__ 2.22044604925031308084726333618164062e-16F64
+#define __FLT64_HAS_DENORM__ 1
+#define __FLT64_HAS_INFINITY__ 1
+#define __FLT64_HAS_QUIET_NAN__ 1
+#define __FLT64_IS_IEC_60559__ 1
+#define __FLT64_MANT_DIG__ 53
+#define __FLT64_MAX_10_EXP__ 308
+#define __FLT64_MAX_EXP__ 1024
+#define __FLT64_MAX__ 1.79769313486231570814527423731704357e+308F64
+#define __FLT64_MIN_10_EXP__ (-307)
+#define __FLT64_MIN_EXP__ (-1021)
+#define __FLT64_MIN__ 2.22507385850720138309023271733240406e-308F64
+#define __FLT64_NORM_MAX__ 1.79769313486231570814527423731704357e+308F64
+#define __FLT_DECIMAL_DIG__ 9
+#define __FLT_DENORM_MIN__ 1.40129846432481707092372958328991613e-45F
+#define __FLT_DIG__ 6
+#define __FLT_EPSILON__ 1.19209289550781250000000000000000000e-7F
+#define __FLT_EVAL_METHOD_TS_18661_3__ 0
+#define __FLT_EVAL_METHOD__ 0
+#define __FLT_HAS_DENORM__ 1
+#define __FLT_HAS_INFINITY__ 1
+#define __FLT_HAS_QUIET_NAN__ 1
+#define __FLT_IS_IEC_60559__ 1
+#define __FLT_MANT_DIG__ 24
+#define __FLT_MAX_10_EXP__ 38
+#define __FLT_MAX_EXP__ 128
+#define __FLT_MAX__ 3.40282346638528859811704183484516925e+38F
+#define __FLT_MIN_10_EXP__ (-37)
+#define __FLT_MIN_EXP__ (-125)
+#define __FLT_MIN__ 1.17549435082228750796873653722224568e-38F
+#define __FLT_NORM_MAX__ 3.40282346638528859811704183484516925e+38F
+#define __FLT_RADIX__ 2
+#define __FP_LOGB0_IS_MIN 1
+#define __FP_LOGBNAN_IS_MIN 1
+#define __FSBLKCNT64_T_TYPE __UQUAD_TYPE
+#define __FSBLKCNT_T_TYPE __SYSCALL_ULONG_TYPE
+#define __FSFILCNT64_T_TYPE __UQUAD_TYPE
+#define __FSFILCNT_T_TYPE __SYSCALL_ULONG_TYPE
+#define __FSID_T_TYPE struct { int __val[2]; }
+#define __FSWORD_T_TYPE __SYSCALL_SLONG_TYPE
+#define __FXSR__ 1
+#define __GCC_ASM_FLAG_OUTPUTS__ 1
+#define __GCC_ATOMIC_BOOL_LOCK_FREE 2
+#define __GCC_ATOMIC_CHAR16_T_LOCK_FREE 2
+#define __GCC_ATOMIC_CHAR32_T_LOCK_FREE 2
+#define __GCC_ATOMIC_CHAR_LOCK_FREE 2
+#define __GCC_ATOMIC_INT_LOCK_FREE 2
+#define __GCC_ATOMIC_LLONG_LOCK_FREE 2
+#define __GCC_ATOMIC_LONG_LOCK_FREE 2
+#define __GCC_ATOMIC_POINTER_LOCK_FREE 2
+#define __GCC_ATOMIC_SHORT_LOCK_FREE 2
+#define __GCC_ATOMIC_TEST_AND_SET_TRUEVAL 1
+#define __GCC_ATOMIC_WCHAR_T_LOCK_FREE 2
+#define __GCC_CONSTRUCTIVE_SIZE 64
+#define __GCC_DESTRUCTIVE_SIZE 64
+#define __GCC_HAVE_DWARF2_CFI_ASM 1
+#define __GCC_HAVE_SYNC_COMPARE_AND_SWAP_1 1
+#define __GCC_HAVE_SYNC_COMPARE_AND_SWAP_2 1
+#define __GCC_HAVE_SYNC_COMPARE_AND_SWAP_4 1
+#define __GCC_HAVE_SYNC_COMPARE_AND_SWAP_8 1
+#define __GCC_IEC_559 2
+#define __GCC_IEC_559_COMPLEX 2
+#define __GID_T_TYPE __U32_TYPE
+#define __GLIBC_FLT_EVAL_METHOD __FLT_EVAL_METHOD__
+#define __GLIBC_MINOR__ 39
+#define __GLIBC_PREREQ(maj,min) ((__GLIBC__ << 16) + __GLIBC_MINOR__ >= ((maj) << 16) + (min))
+#define __GLIBC_USE(F) __GLIBC_USE_ ## F
+#define __GLIBC_USE_C2X_STRTOL 0
+#define __GLIBC_USE_DEPRECATED_GETS 0
+#define __GLIBC_USE_DEPRECATED_SCANF 0
+#define __GLIBC_USE_IEC_60559_BFP_EXT 0
+#define __GLIBC_USE_IEC_60559_BFP_EXT_C2X 0
+#define __GLIBC_USE_IEC_60559_EXT 0
+#define __GLIBC_USE_IEC_60559_FUNCS_EXT 0
+#define __GLIBC_USE_IEC_60559_FUNCS_EXT_C2X 0
+#define __GLIBC_USE_IEC_60559_TYPES_EXT 0
+#define __GLIBC_USE_ISOC2X 0
+#define __GLIBC_USE_LIB_EXT2 0
+#define __GLIBC__ 2
+#define __GNUC_EXECUTION_CHARSET_NAME "UTF-8"
+#define __GNUC_MINOR__ 3
+#define __GNUC_PATCHLEVEL__ 0
+#define __GNUC_PREREQ(maj,min) ((__GNUC__ << 16) + __GNUC_MINOR__ >= ((maj) << 16) + (min))
+#define __GNUC_STDC_INLINE__ 1
+#define __GNUC_VA_LIST 
+#define __GNUC_WIDE_EXECUTION_CHARSET_NAME "UTF-32LE"
+#define __GNUC__ 13
+#define __GNU_LIBRARY__ 6
+#define __GXX_ABI_VERSION 1018
+#define __HAVE_DISTINCT_FLOAT128 1
+#define __HAVE_DISTINCT_FLOAT128X __HAVE_FLOAT128X
+#define __HAVE_DISTINCT_FLOAT16 __HAVE_FLOAT16
+#define __HAVE_DISTINCT_FLOAT32 0
+#define __HAVE_DISTINCT_FLOAT32X 0
+#define __HAVE_DISTINCT_FLOAT64 0
+#define __HAVE_DISTINCT_FLOAT64X 0
+#define __HAVE_FLOAT128 1
+#define __HAVE_FLOAT128X 0
+#define __HAVE_FLOAT128_UNLIKE_LDBL (__HAVE_DISTINCT_FLOAT128 && __LDBL_MANT_DIG__ != 113)
+#define __HAVE_FLOAT16 0
+#define __HAVE_FLOAT32 1
+#define __HAVE_FLOAT32X 1
+#define __HAVE_FLOAT64 1
+#define __HAVE_FLOAT64X 1
+#define __HAVE_FLOAT64X_LONG_DOUBLE 1
+#define __HAVE_FLOATN_NOT_TYPEDEF 1
+#define __HAVE_GENERIC_SELECTION 1
+#define __HAVE_SPECULATION_SAFE_VALUE 1
+#define __ID_T_TYPE __U32_TYPE
+#define __INO64_T_TYPE __UQUAD_TYPE
+#define __INO_T_MATCHES_INO64_T 1
+#define __INO_T_TYPE __SYSCALL_ULONG_TYPE
+#define __INT16_C(c) c
+#define __INT16_MAX__ 0x7fff
+#define __INT16_TYPE__ short int
+#define __INT32_C(c) c
+#define __INT32_MAX__ 0x7fffffff
+#define __INT32_TYPE__ int
+#define __INT64_C(c) c ## L
+#define __INT64_MAX__ 0x7fffffffffffffffL
+#define __INT64_TYPE__ long int
+#define __INT8_C(c) c
+#define __INT8_MAX__ 0x7f
+#define __INT8_TYPE__ signed char
+#define __INTMAX_C(c) c ## L
+#define __INTMAX_MAX__ 0x7fffffffffffffffL
+#define __INTMAX_TYPE__ long int
+#define __INTMAX_WIDTH__ 64
+#define __INTPTR_MAX__ 0x7fffffffffffffffL
+#define __INTPTR_TYPE__ long int
+#define __INTPTR_WIDTH__ 64
+#define __INT_FAST16_MAX__ 0x7fffffffffffffffL
+#define __INT_FAST16_TYPE__ long int
+#define __INT_FAST16_WIDTH__ 64
+#define __INT_FAST32_MAX__ 0x7fffffffffffffffL
+#define __INT_FAST32_TYPE__ long int
+#define __INT_FAST32_WIDTH__ 64
+#define __INT_FAST64_MAX__ 0x7fffffffffffffffL
+#define __INT_FAST64_TYPE__ long int
+#define __INT_FAST64_WIDTH__ 64
+#define __INT_FAST8_MAX__ 0x7f
+#define __INT_FAST8_TYPE__ signed char
+#define __INT_FAST8_WIDTH__ 8
+#define __INT_LEAST16_MAX__ 0x7fff
+#define __INT_LEAST16_TYPE__ short int
+#define __INT_LEAST16_WIDTH__ 16
+#define __INT_LEAST32_MAX__ 0x7fffffff
+#define __INT_LEAST32_TYPE__ int
+#define __INT_LEAST32_WIDTH__ 32
+#define __INT_LEAST64_MAX__ 0x7fffffffffffffffL
+#define __INT_LEAST64_TYPE__ long int
+#define __INT_LEAST64_WIDTH__ 64
+#define __INT_LEAST8_MAX__ 0x7f
+#define __INT_LEAST8_TYPE__ signed char
+#define __INT_LEAST8_WIDTH__ 8
+#define __INT_MAX__ 0x7fffffff
+#define __INT_WCHAR_T_H 
+#define __INT_WIDTH__ 32
+#define __KERNEL_OLD_TIMEVAL_MATCHES_TIMEVAL64 1
+#define __KERNEL_STRICT_NAMES 
+#define __KEY_T_TYPE __S32_TYPE
+#define __LDBL_DECIMAL_DIG__ 21
+#define __LDBL_DENORM_MIN__ 3.64519953188247460252840593361941982e-4951L
+#define __LDBL_DIG__ 18
+#define __LDBL_EPSILON__ 1.08420217248550443400745280086994171e-19L
+#define __LDBL_HAS_DENORM__ 1
+#define __LDBL_HAS_INFINITY__ 1
+#define __LDBL_HAS_QUIET_NAN__ 1
+#define __LDBL_IS_IEC_60559__ 1
+#define __LDBL_MANT_DIG__ 64
+#define __LDBL_MAX_10_EXP__ 4932
+#define __LDBL_MAX_EXP__ 16384
+#define __LDBL_MAX__ 1.18973149535723176502126385303097021e+4932L
+#define __LDBL_MIN_10_EXP__ (-4931)
+#define __LDBL_MIN_EXP__ (-16381)
+#define __LDBL_MIN__ 3.36210314311209350626267781732175260e-4932L
+#define __LDBL_NORM_MAX__ 1.18973149535723176502126385303097021e+4932L
+#define __LDBL_REDIR(name,proto) name proto
+#define __LDBL_REDIR1(name,proto,alias) name proto
+#define __LDBL_REDIR1_NTH(name,proto,alias) name proto __THROW
+#define __LDBL_REDIR2_DECL(name) 
+#define __LDBL_REDIR_DECL(name) 
+#define __LDBL_REDIR_NTH(name,proto) name proto __THROW
+#define __LDOUBLE_REDIRECTS_TO_FLOAT128_ABI 0
+#define __LEAF , __leaf__
+#define __LEAF_ATTR __attribute__ ((__leaf__))
+#define __LITTLE_ENDIAN 1234
+#define __LOCK_ALIGNMENT 
+#define __LONG_LONG_MAX__ 0x7fffffffffffffffLL
+#define __LONG_LONG_PAIR(HI,LO) LO, HI
+#define __LONG_LONG_WIDTH__ 64
+#define __LONG_MAX__ 0x7fffffffffffffffL
+#define __LONG_WIDTH__ 64
+#define __LP64__ 1
+#define __MATHCALLX(function,suffix,args,attrib) __MATHDECLX (_Mdouble_,function,suffix, args, attrib)
+#define __MATHCALL_VEC(function,suffix,args) __SIMD_DECL (__MATH_PRECNAME (function, suffix)) __MATHCALL (function, suffix, args)
+#define __MATHDECLX(type,function,suffix,args,attrib) __MATHDECL_1(type, function,suffix, args) __attribute__ (attrib); __MATHDECL_1(type, __CONCAT(__,function),suffix, args) __attribute__ (attrib)
+#define __MATHDECL_VEC(type,function,suffix,args) __SIMD_DECL (__MATH_PRECNAME (function, suffix)) __MATHDECL(type, function,suffix, args)
+#define __MATHREDIR(type,function,suffix,args,to) extern type __REDIRECT_NTH (__MATH_PRECNAME (function, suffix), args, to)
+#define __MATH_DECLARE_LDOUBLE 1
+#define __MATH_TG(TG_ARG,FUNC,ARGS) _Generic ((TG_ARG), float: FUNC ## f ARGS, __MATH_TG_F32 (FUNC, ARGS) default: FUNC ARGS, long double: FUNC ## l ARGS, __MATH_TG_F64X (FUNC, ARGS) _Float128: FUNC ## f128 ARGS)
+#define __MATH_TG_F32(FUNC,ARGS) _Float32: FUNC ## f ARGS,
+#define __MATH_TG_F64X(FUNC,ARGS) _Float64x: FUNC ## l ARGS,
+#define __MMX_WITH_SSE__ 1
+#define __MMX__ 1
+#define __MODE_T_TYPE __U32_TYPE
+#define __NFDBITS (8 * (int) sizeof (__fd_mask))
+#define __NLINK_T_TYPE __SYSCALL_ULONG_TYPE
+#define __NTH(fct) __attribute__ ((__nothrow__ __LEAF)) fct
+#define __NTHNL(fct) __attribute__ ((__nothrow__)) fct
+#define __OFF64_T_TYPE __SQUAD_TYPE
+#define __OFF_T_MATCHES_OFF64_T 1
+#define __OFF_T_TYPE __SYSCALL_SLONG_TYPE
+#define __ONCE_ALIGNMENT 
+#define __ONCE_FLAG_INIT { 0 }
+#define __OPTIMIZE__ 1
+#define __ORDER_BIG_ENDIAN__ 4321
+#define __ORDER_LITTLE_ENDIAN__ 1234
+#define __ORDER_PDP_ENDIAN__ 3412
+#define __P(args) args
+#define __PDP_ENDIAN 3412
+#define __PIC__ 2
+#define __PID_T_TYPE __S32_TYPE
+#define __PIE__ 2
+#define __PMT(args) args
+#define __PRAGMA_REDEFINE_EXTNAME 1
+#define __PTHREAD_MUTEX_HAVE_PREV 1
+#define __PTHREAD_MUTEX_INITIALIZER(__kind) 0, 0, 0, 0, __kind, 0, 0, { 0, 0 }
+#define __PTHREAD_RWLOCK_ELISION_EXTRA 0, { 0, 0, 0, 0, 0, 0, 0 }
+#define __PTHREAD_RWLOCK_INITIALIZER(__flags) 0, 0, 0, 0, 0, 0, 0, 0, __PTHREAD_RWLOCK_ELISION_EXTRA, 0, __flags
+#define __PTRDIFF_MAX__ 0x7fffffffffffffffL
+#define __PTRDIFF_T 
+#define __PTRDIFF_TYPE__ long int
+#define __PTRDIFF_WIDTH__ 64
+#define __RAOINTINTRIN_H_INCLUDED 
+#define __REDIRECT(name,proto,alias) name proto __asm__ (__ASMNAME (#alias))
+#define __REDIRECT_FORTIFY __REDIRECT
+#define __REDIRECT_FORTIFY_NTH __REDIRECT_NTH
+#define __REDIRECT_LDBL(name,proto,alias) __REDIRECT (name, proto, alias)
+#define __REDIRECT_NTH(name,proto,alias) name proto __asm__ (__ASMNAME (#alias)) __THROW
+#define __REDIRECT_NTHNL(name,proto,alias) name proto __asm__ (__ASMNAME (#alias)) __THROWNL
+#define __REDIRECT_NTH_LDBL(name,proto,alias) __REDIRECT_NTH (name, proto, alias)
+#define __REGISTER_PREFIX__ 
+#define __RLIM64_T_TYPE __UQUAD_TYPE
+#define __RLIM_T_MATCHES_RLIM64_T 1
+#define __RLIM_T_TYPE __SYSCALL_ULONG_TYPE
+#define __S16_TYPE short int
+#define __S32_TYPE int
+#define __S64_TYPE long int
+#define __SCHAR_MAX__ 0x7f
+#define __SCHAR_WIDTH__ 8
+#define __SEG_FS 1
+#define __SEG_GS 1
+#define __SHRT_MAX__ 0x7fff
+#define __SHRT_WIDTH__ 16
+#define __SIG_ATOMIC_MAX__ 0x7fffffff
+#define __SIG_ATOMIC_MIN__ (-__SIG_ATOMIC_MAX__ - 1)
+#define __SIG_ATOMIC_TYPE__ int
+#define __SIG_ATOMIC_WIDTH__ 32
+#define __SIMD_DECL(function) __CONCAT (__DECL_SIMD_, function)
+#define __SIZEOF_DOUBLE__ 8
+#define __SIZEOF_FLOAT128__ 16
+#define __SIZEOF_FLOAT80__ 16
+#define __SIZEOF_FLOAT__ 4
+#define __SIZEOF_INT128__ 16
+#define __SIZEOF_INT__ 4
+#define __SIZEOF_LONG_DOUBLE__ 16
+#define __SIZEOF_LONG_LONG__ 8
+#define __SIZEOF_LONG__ 8
+#define __SIZEOF_POINTER__ 8
+#define __SIZEOF_PTHREAD_ATTR_T 56
+#define __SIZEOF_PTHREAD_BARRIERATTR_T 4
+#define __SIZEOF_PTHREAD_BARRIER_T 32
+#define __SIZEOF_PTHREAD_CONDATTR_T 4
+#define __SIZEOF_PTHREAD_COND_T 48
+#define __SIZEOF_PTHREAD_MUTEXATTR_T 4
+#define __SIZEOF_PTHREAD_MUTEX_T 40
+#define __SIZEOF_PTHREAD_RWLOCKATTR_T 8
+#define __SIZEOF_PTHREAD_RWLOCK_T 56
+#define __SIZEOF_PTRDIFF_T__ 8
+#define __SIZEOF_SHORT__ 2
+#define __SIZEOF_SIZE_T__ 8
+#define __SIZEOF_WCHAR_T__ 4
+#define __SIZEOF_WINT_T__ 4
+#define __SIZE_MAX__ 0xffffffffffffffffUL
+#define __SIZE_T 
+#define __SIZE_TYPE__ long unsigned int
+#define __SIZE_T__ 
+#define __SIZE_WIDTH__ 64
+#define __SLONG32_TYPE int
+#define __SLONGWORD_TYPE long int
+#define __SQUAD_TYPE long int
+#define __SSE2_MATH__ 1
+#define __SSE2__ 1
+#define __SSE_MATH__ 1
+#define __SSE__ 1
+#define __SSIZE_T_TYPE __SWORD_TYPE
+#define __SSP_STRONG__ 3
+#define __STATFS_MATCHES_STATFS64 1
+#define __STDC_HOSTED__ 1
+#define __STDC_IEC_559_COMPLEX__ 1
+#define __STDC_IEC_559__ 1
+#define __STDC_IEC_60559_BFP__ 201404L
+#define __STDC_IEC_60559_COMPLEX__ 201404L
+#define __STDC_ISO_10646__ 201706L
+#define __STDC_UTF_16__ 1
+#define __STDC_UTF_32__ 1
+#define __STDC_VERSION__ 201710L
+#define __STDC__ 1
+#define __STDLIB_MB_LEN_MAX 16
+#define __STRING(x) #x
+#define __STRINGS_FORTIFIED 1
+#define __SUSECONDS64_T_TYPE __SQUAD_TYPE
+#define __SUSECONDS_T_TYPE __SYSCALL_SLONG_TYPE
+#define __SWORD_TYPE long int
+#define __SYSCALL_SLONG_TYPE __SLONGWORD_TYPE
+#define __SYSCALL_ULONG_TYPE __ULONGWORD_TYPE
+#define __SYSCALL_WORDSIZE 64
+#define __THROW __attribute__ ((__nothrow__ __LEAF))
+#define __THROWNL __attribute__ ((__nothrow__))
+#define __TIME64_T_TYPE __TIME_T_TYPE
+#define __TIMER_T_TYPE void *
+#define __TIMESIZE __WORDSIZE
+#define __TIME_T_TYPE __SYSCALL_SLONG_TYPE
+#define __U16_TYPE unsigned short int
+#define __U32_TYPE unsigned int
+#define __U64_TYPE unsigned long int
+#define __UID_T_TYPE __U32_TYPE
+#define __UINT16_C(c) c
+#define __UINT16_MAX__ 0xffff
+#define __UINT16_TYPE__ short unsigned int
+#define __UINT32_C(c) c ## U
+#define __UINT32_MAX__ 0xffffffffU
+#define __UINT32_TYPE__ unsigned int
+#define __UINT64_C(c) c ## UL
+#define __UINT64_MAX__ 0xffffffffffffffffUL
+#define __UINT64_TYPE__ long unsigned int
+#define __UINT8_C(c) c
+#define __UINT8_MAX__ 0xff
+#define __UINT8_TYPE__ unsigned char
+#define __UINTMAX_C(c) c ## UL
+#define __UINTMAX_MAX__ 0xffffffffffffffffUL
+#define __UINTMAX_TYPE__ long unsigned int
+#define __UINTPTR_MAX__ 0xffffffffffffffffUL
+#define __UINTPTR_TYPE__ long unsigned int
+#define __UINT_FAST16_MAX__ 0xffffffffffffffffUL
+#define __UINT_FAST16_TYPE__ long unsigned int
+#define __UINT_FAST32_MAX__ 0xffffffffffffffffUL
+#define __UINT_FAST32_TYPE__ long unsigned int
+#define __UINT_FAST64_MAX__ 0xffffffffffffffffUL
+#define __UINT_FAST64_TYPE__ long unsigned int
+#define __UINT_FAST8_MAX__ 0xff
+#define __UINT_FAST8_TYPE__ unsigned char
+#define __UINT_LEAST16_MAX__ 0xffff
+#define __UINT_LEAST16_TYPE__ short unsigned int
+#define __UINT_LEAST32_MAX__ 0xffffffffU
+#define __UINT_LEAST32_TYPE__ unsigned int
+#define __UINT_LEAST64_MAX__ 0xffffffffffffffffUL
+#define __UINT_LEAST64_TYPE__ long unsigned int
+#define __UINT_LEAST8_MAX__ 0xff
+#define __UINT_LEAST8_TYPE__ unsigned char
+#define __ULONG32_TYPE unsigned int
+#define __ULONGWORD_TYPE unsigned long int
+#define __UQUAD_TYPE unsigned long int
+#define __USECONDS_T_TYPE __U32_TYPE
+#define __USER_LABEL_PREFIX__ 
+#define __USE_ATFILE 1
+#define __USE_EXTERN_INLINES 1
+#define __USE_FORTIFY_LEVEL 3
+#define __USE_ISOC11 1
+#define __USE_ISOC95 1
+#define __USE_ISOC99 1
+#define __USE_MISC 1
+#define __USE_POSIX 1
+#define __USE_POSIX199309 1
+#define __USE_POSIX199506 1
+#define __USE_POSIX2 1
+#define __USE_POSIX_IMPLICITLY 1
+#define __USE_XOPEN2K 1
+#define __USE_XOPEN2K8 1
+#define __UWORD_TYPE unsigned long int
+#define __VAESINTRIN_H_INCLUDED 
+#define __VERSION__ "13.3.0"
+#define __WALL 0x40000000
+#define __WCHAR_MAX __WCHAR_MAX__
+#define __WCHAR_MAX__ 0x7fffffff
+#define __WCHAR_MIN __WCHAR_MIN__
+#define __WCHAR_MIN__ (-__WCHAR_MAX__ - 1)
+#define __WCHAR_T 
+#define __WCHAR_TYPE__ int
+#define __WCHAR_T__ 
+#define __WCHAR_WIDTH__ 32
+#define __WCLONE 0x80000000
+#define __WCOREDUMP(status) ((status) & __WCOREFLAG)
+#define __WCOREFLAG 0x80
+#define __WEXITSTATUS(status) (((status) & 0xff00) >> 8)
+#define __WIFCONTINUED(status) ((status) == __W_CONTINUED)
+#define __WIFEXITED(status) (__WTERMSIG(status) == 0)
+#define __WIFSIGNALED(status) (((signed char) (((status) & 0x7f) + 1) >> 1) > 0)
+#define __WIFSTOPPED(status) (((status) & 0xff) == 0x7f)
+#define __WINT_MAX__ 0xffffffffU
+#define __WINT_MIN__ 0U
+#define __WINT_TYPE__ unsigned int
+#define __WINT_WIDTH__ 32
+#define __WNOTHREAD 0x20000000
+#define __WORDSIZE 64
+#define __WORDSIZE_TIME64_COMPAT32 1
+#define __WSTOPSIG(status) __WEXITSTATUS(status)
+#define __WTERMSIG(status) ((status) & 0x7f)
+#define __W_CONTINUED 0xffff
+#define __W_EXITCODE(ret,sig) ((ret) << 8 | (sig))
+#define __W_STOPCODE(sig) ((sig) << 8 | 0x7f)
+#define ____FILE_defined 1
+#define _____fpos64_t_defined 1
+#define _____fpos_t_defined 1
+#define ____mbstate_t_defined 1
+#define ____sigset_t_defined 
+#define ___int_ptrdiff_t_h 
+#define ___int_size_t_h 
+#define ___int_wchar_t_h 
+#define __always_inline __inline __attribute__ ((__always_inline__))
+#define __amd64 1
+#define __amd64__ 1
+#define __attr_access(x) __attribute__ ((__access__ x))
+#define __attr_access_none(argno) __attribute__ ((__access__ (__none__, argno)))
+#define __attr_dealloc(dealloc,argno) __attribute__ ((__malloc__ (dealloc, argno)))
+#define __attr_dealloc_fclose __attr_dealloc (fclose, 1)
+#define __attr_dealloc_free __attr_dealloc (__builtin_free, 1)
+#define __attribute_alloc_align__(param) __attribute__ ((__alloc_align__ param))
+#define __attribute_alloc_size__(params) __attribute__ ((__alloc_size__ params))
+#define __attribute_artificial__ __attribute__ ((__artificial__))
+#define __attribute_const__ __attribute__ ((__const__))
+#define __attribute_copy__(arg) __attribute__ ((__copy__ (arg)))
+#define __attribute_deprecated__ __attribute__ ((__deprecated__))
+#define __attribute_deprecated_msg__(msg) __attribute__ ((__deprecated__ (msg)))
+#define __attribute_format_arg__(x) __attribute__ ((__format_arg__ (x)))
+#define __attribute_format_strfmon__(a,b) __attribute__ ((__format__ (__strfmon__, a, b)))
+#define __attribute_malloc__ __attribute__ ((__malloc__))
+#define __attribute_maybe_unused__ __attribute__ ((__unused__))
+#define __attribute_noinline__ __attribute__ ((__noinline__))
+#define __attribute_nonnull__(params) __attribute__ ((__nonnull__ params))
+#define __attribute_nonstring__ __attribute__ ((__nonstring__))
+#define __attribute_pure__ __attribute__ ((__pure__))
+#define __attribute_returns_twice__ __attribute__ ((__returns_twice__))
+#define __attribute_used__ __attribute__ ((__used__))
+#define __attribute_warn_unused_result__ __attribute__ ((__warn_unused_result__))
+#define __blkcnt_t_defined 
+#define __blksize_t_defined 
+#define __bos(ptr) __builtin_object_size (ptr, __USE_FORTIFY_LEVEL > 1)
+#define __bos0(ptr) __builtin_object_size (ptr, 0)
+#define __bswap_constant_16(x) ((__uint16_t) ((((x) >> 8) & 0xff) | (((x) & 0xff) << 8)))
+#define __bswap_constant_32(x) ((((x) & 0xff000000u) >> 24) | (((x) & 0x00ff0000u) >> 8) | (((x) & 0x0000ff00u) << 8) | (((x) & 0x000000ffu) << 24))
+#define __bswap_constant_64(x) ((((x) & 0xff00000000000000ull) >> 56) | (((x) & 0x00ff000000000000ull) >> 40) | (((x) & 0x0000ff0000000000ull) >> 24) | (((x) & 0x000000ff00000000ull) >> 8) | (((x) & 0x00000000ff000000ull) << 8) | (((x) & 0x0000000000ff0000ull) << 24) | (((x) & 0x000000000000ff00ull) << 40) | (((x) & 0x00000000000000ffull) << 56))
+#define __clock_t_defined 1
+#define __clockid_t_defined 1
+#define __code_model_small__ 1
+#define __cookie_io_functions_t_defined 1
+#define __daddr_t_defined 
+#define __dev_t_defined 
+#define __encls_bc(leaf,b,c,retval) __asm__ __volatile__ ("encls\n\t" : "=a" (retval) : "a" (leaf), "b" (b), "c" (c) : "cc")
+#define __encls_bcd(leaf,b,c,d,retval) __asm__ __volatile__("encls\n\t" : "=a" (retval) : "a" (leaf), "b" (b), "c" (c), "d" (d) : "cc")
+#define __encls_c(leaf,c,retval) __asm__ __volatile__("encls\n\t" : "=a" (retval) : "a" (leaf), "c" (c) : "cc")
+#define __encls_edbgrd(leaf,b,c,retval) __asm__ __volatile__("encls\n\t" : "=a" (retval), "=b" (b) : "a" (leaf), "c" (c))
+#define __encls_generic(leaf,b,c,d,retval) __asm__ __volatile__("encls\n\t" : "=a" (retval), "=b" (b), "=c" (c), "=d" (d) : "a" (leaf), "b" (b), "c" (c), "d" (d) : "cc")
+#define __enclu_bc(leaf,b,c,retval) __asm__ __volatile__("enclu\n\t" : "=a" (retval) : "a" (leaf), "b" (b), "c" (c) : "cc")
+#define __enclu_bcd(leaf,b,c,d,retval) __asm__ __volatile__("enclu\n\t" : "=a" (retval) : "a" (leaf), "b" (b), "c" (c), "d" (d) : "cc")
+#define __enclu_eenter(leaf,b,c,retval) __asm__ __volatile__("enclu\n\t" : "=a" (retval), "=c" (c) : "a" (leaf), "b" (b), "c" (c) : "cc")
+#define __enclu_eexit(leaf,b,c,retval) __asm__ __volatile__("enclu\n\t" : "=a" (retval), "=c" (c) : "a" (leaf), "b" (b) : "cc")
+#define __enclu_generic(leaf,b,c,d,retval) __asm__ __volatile__("enclu\n\t" : "=a" (retval), "=b" (b), "=c" (c), "=d" (d) : "a" (leaf), "b" (b), "c" (c), "d" (d) : "cc")
+#define __enclv_bc(leaf,b,c,retval) __asm__ __volatile__("enclv\n\t" : "=a" (retval) : "a" (leaf), "b" (b), "c" (c) : "cc")
+#define __enclv_cd(leaf,c,d,retval) __asm__ __volatile__("enclv\n\t" : "=a" (retval) : "a" (leaf), "c" (c), "d" (d) : "cc")
+#define __enclv_generic(leaf,b,c,d,retval) __asm__ __volatile__("enclv\n\t" : "=a" (retval), "=b" (b), "=c" (b), "=d" (d) : "a" (leaf), "b" (b), "c" (c), "d" (d) : "cc")
+#define __errordecl(name,msg) extern void name (void) __attribute__((__error__ (msg)))
+#define __extern_always_inline extern __always_inline __attribute__ ((__gnu_inline__))
+#define __extern_inline extern __inline __attribute__ ((__gnu_inline__))
+#define __f128(x) x ##f128
+#define __f32(x) x ##f32
+#define __f32x(x) x ##f32x
+#define __f64(x) x ##f64
+#define __f64x(x) x ##f64x
+#define __feof_unlocked_body(_fp) (((_fp)->_flags & _IO_EOF_SEEN) != 0)
+#define __ferror_unlocked_body(_fp) (((_fp)->_flags & _IO_ERR_SEEN) != 0)
+#define __flexarr []
+#define __fortified_attr_access(a,o,s) __attribute__ ((__access__ (a, o)))
+#define __fortify_function __extern_always_inline __attribute_artificial__
+#define __fsblkcnt_t_defined 
+#define __fsfilcnt_t_defined 
+#define __getc_unlocked_body(_fp) (__glibc_unlikely ((_fp)->_IO_read_ptr >= (_fp)->_IO_read_end) ? __uflow (_fp) : *(unsigned char *) (_fp)->_IO_read_ptr++)
+#define __gid_t_defined 
+#define __glibc_c99_flexarr_available 1
+#define __glibc_clang_prereq(maj,min) 0
+#define __glibc_fortify(f,__l,__s,__osz,...) (__glibc_safe_or_unknown_len (__l, __s, __osz) ? __ ## f ## _alias (__VA_ARGS__) : (__glibc_unsafe_len (__l, __s, __osz) ? __ ## f ## _chk_warn (__VA_ARGS__, __osz) : __ ## f ## _chk (__VA_ARGS__, __osz)))
+#define __glibc_fortify_n(f,__l,__s,__osz,...) (__glibc_safe_or_unknown_len (__l, __s, __osz) ? __ ## f ## _alias (__VA_ARGS__) : (__glibc_unsafe_len (__l, __s, __osz) ? __ ## f ## _chk_warn (__VA_ARGS__, (__osz) / (__s)) : __ ## f ## _chk (__VA_ARGS__, (__osz) / (__s))))
+#define __glibc_has_attribute(attr) __has_attribute (attr)
+#define __glibc_has_builtin(name) __has_builtin (name)
+#define __glibc_has_extension(ext) 0
+#define __glibc_likely(cond) __builtin_expect ((cond), 1)
+#define __glibc_macro_warning(message) __glibc_macro_warning1 (GCC warning message)
+#define __glibc_macro_warning1(message) _Pragma (#message)
+#define __glibc_objsize(__o) __builtin_dynamic_object_size (__o, 1)
+#define __glibc_objsize0(__o) __builtin_dynamic_object_size (__o, 0)
+#define __glibc_safe_len_cond(__l,__s,__osz) ((__l) <= (__osz) / (__s))
+#define __glibc_safe_or_unknown_len(__l,__s,__osz) ((__builtin_constant_p (__osz) && (__osz) == (__SIZE_TYPE__) -1) || (__glibc_unsigned_or_positive (__l) && __builtin_constant_p (__glibc_safe_len_cond ((__SIZE_TYPE__) (__l), (__s), (__osz))) && __glibc_safe_len_cond ((__SIZE_TYPE__) (__l), (__s), (__osz))))
+#define __glibc_unlikely(cond) __builtin_expect ((cond), 0)
+#define __glibc_unsafe_len(__l,__s,__osz) (__glibc_unsigned_or_positive (__l) && __builtin_constant_p (__glibc_safe_len_cond ((__SIZE_TYPE__) (__l), __s, __osz)) && !__glibc_safe_len_cond ((__SIZE_TYPE__) (__l), __s, __osz))
+#define __glibc_unsigned_or_positive(__l) ((__typeof (__l)) 0 < (__typeof (__l)) -1 || (__builtin_constant_p (__l) && (__l) > 0))
+#define __gnu_linux__ 1
+#define __have_pthread_attr_t 1
+#define __id_t_defined 
+#define __ino_t_defined 
+#define __intptr_t_defined 
+#define __isleap(year) ((year) % 4 == 0 && ((year) % 100 != 0 || (year) % 400 == 0))
+#define __itimerspec_defined 1
+#define __k8 1
+#define __k8__ 1
+#define __key_t_defined 
+#define __ldiv_t_defined 1
+#define __linux 1
+#define __linux__ 1
+#define __lldiv_t_defined 1
+#define __mode_t_defined 
+#define __nlink_t_defined 
+#define __nonnull(params) __attribute_nonnull__ (params)
+#define __off_t_defined 
+#define __pconfig_b(leaf,b,retval) __asm__ __volatile__ ("pconfig\n\t" : "=a" (retval) : "a" (leaf), "b" (b) : "cc")
+#define __pconfig_generic(leaf,b,c,d,retval) __asm__ __volatile__ ("pconfig\n\t" : "=a" (retval), "=b" (b), "=c" (c), "=d" (d) : "a" (leaf), "b" (b), "c" (c), "d" (d) : "cc")
+#define __pic__ 2
+#define __pid_t_defined 
+#define __pie__ 2
+#define __ptr_t void *
+#define __putc_unlocked_body(_ch,_fp) (__glibc_unlikely ((_fp)->_IO_write_ptr >= (_fp)->_IO_write_end) ? __overflow (_fp, (unsigned char) (_ch)) : (unsigned char) (*(_fp)->_IO_write_ptr++ = (_ch)))
+#define __restrict_arr __restrict
+#define __returns_nonnull __attribute__ ((__returns_nonnull__))
+#define __sigset_t_defined 1
+#define __size_t 
+#define __size_t__ 
+#define __ssize_t_defined 
+#define __struct_FILE_defined 1
+#define __struct_tm_defined 1
+#define __stub___compat_bdflush 
+#define __stub_chflags 
+#define __stub_fchflags 
+#define __stub_gtty 
+#define __stub_revoke 
+#define __stub_setlogin 
+#define __stub_sigreturn 
+#define __stub_stty 
+#define __suseconds_t_defined 
+#define __time_t_defined 1
+#define __timer_t_defined 1
+#define __timeval_defined 1
+#define __u_char_defined 
+#define __uid_t_defined 
+#define __unix 1
+#define __unix__ 1
+#define __va_arg_pack() __builtin_va_arg_pack ()
+#define __va_arg_pack_len() __builtin_va_arg_pack_len ()
+#define __warnattr(msg) __attribute__((__warning__ (msg)))
+#define __wchar_t__ 
+#define __wur __attribute_warn_unused_result__
+#define __x86_64 1
+#define __x86_64__ 1
+#define _bit_scan_forward(a) __bsfd(a)
+#define _bit_scan_reverse(a) __bsrd(a)
+#define _bswap(a) __bswapd(a)
+#define _bswap64(a) __bswapq(a)
+#define _kand_mask16 _mm512_kand
+#define _kandn_mask16 _mm512_kandn
+#define _knot_mask16 _mm512_knot
+#define _kor_mask16 _mm512_kor
+#define _kxnor_mask16 _mm512_kxnor
+#define _kxor_mask16 _mm512_kxor
+#define _lrotl(a,b) __rolq((a), (b))
+#define _lrotr(a,b) __rorq((a), (b))
+#define _mm256_ceil_pd(V) _mm256_round_pd ((V), _MM_FROUND_CEIL)
+#define _mm256_ceil_ps(V) _mm256_round_ps ((V), _MM_FROUND_CEIL)
+#define _mm256_cmp_ph_mask(A,B,C) (__builtin_ia32_cmpph256_mask ((A), (B), (C), (-1)))
+#define _mm256_cmul_pch(A,B) _mm256_fcmul_pch ((A), (B))
+#define _mm256_cvtneps_pbh(A) (__m128bh) __builtin_ia32_cvtneps2bf16_v8sf (A)
+#define _mm256_dpbusd_epi32(A,B,C) ((__m256i) __builtin_ia32_vpdpbusd_v8si ((__v8si) (A), (__v8si) (B), (__v8si) (C)))
+#define _mm256_dpbusds_epi32(A,B,C) ((__m256i) __builtin_ia32_vpdpbusds_v8si ((__v8si) (A), (__v8si) (B), (__v8si) (C)))
+#define _mm256_dpwssd_epi32(A,B,C) ((__m256i) __builtin_ia32_vpdpwssd_v8si ((__v8si) (A), (__v8si) (B), (__v8si) (C)))
+#define _mm256_dpwssds_epi32(A,B,C) ((__m256i) __builtin_ia32_vpdpwssds_v8si ((__v8si) (A), (__v8si) (B), (__v8si) (C)))
+#define _mm256_floor_pd(V) _mm256_round_pd ((V), _MM_FROUND_FLOOR)
+#define _mm256_floor_ps(V) _mm256_round_ps ((V), _MM_FROUND_FLOOR)
+#define _mm256_madd52hi_epu64(A,B,C) ((__m256i) __builtin_ia32_vpmadd52huq256 ((__v4di) (A), (__v4di) (B), (__v4di) (C)))
+#define _mm256_madd52lo_epu64(A,B,C) ((__m256i) __builtin_ia32_vpmadd52luq256 ((__v4di) (A), (__v4di) (B), (__v4di) (C)))
+#define _mm256_mask_cmp_ph_mask(A,B,C,D) (__builtin_ia32_cmpph256_mask ((B), (C), (D), (A)))
+#define _mm256_mask_cmul_pch(W,U,A,B) _mm256_mask_fcmul_pch ((W), (U), (A), (B))
+#define _mm256_mask_cvt_roundps_ph(A,B,C,D) _mm256_mask_cvtps_ph ((A), (B), (C), (D))
+#define _mm256_mask_mul_pch(W,U,A,B) _mm256_mask_fmul_pch ((W), (U), (A), (B))
+#define _mm256_maskz_cmul_pch(U,A,B) _mm256_maskz_fcmul_pch((U), (A), (B))
+#define _mm256_maskz_cvt_roundps_ph(A,B,C) _mm256_maskz_cvtps_ph ((A), (B), (C))
+#define _mm256_maskz_mul_pch(U,A,B) _mm256_maskz_fmul_pch ((U), (A), (B))
+#define _mm256_mul_pch(A,B) _mm256_fmul_pch ((A), (B))
+#define _mm256_permutexvar_ps(A,B) _mm256_permutevar8x32_ps ((B), (A))
+#define _mm512_cmp_ph_mask(A,B,C) (__builtin_ia32_cmpph512_mask ((A), (B), (C), (-1)))
+#define _mm512_cmp_round_ph_mask(A,B,C,D) (__builtin_ia32_cmpph512_mask_round ((A), (B), (C), (-1), (D)))
+#define _mm512_cmul_pch(A,B) _mm512_fcmul_pch ((A), (B))
+#define _mm512_cmul_round_pch(A,B,R) _mm512_fcmul_round_pch ((A), (B), (R))
+#define _mm512_exp2a23_pd(A) _mm512_exp2a23_round_pd(A, _MM_FROUND_CUR_DIRECTION)
+#define _mm512_exp2a23_ps(A) _mm512_exp2a23_round_ps(A, _MM_FROUND_CUR_DIRECTION)
+#define _mm512_mask_cmp_ph_mask(A,B,C,D) (__builtin_ia32_cmpph512_mask ((B), (C), (D), (A)))
+#define _mm512_mask_cmp_round_ph_mask(A,B,C,D,E) (__builtin_ia32_cmpph512_mask_round ((B), (C), (D), (A), (E)))
+#define _mm512_mask_cmul_pch(W,U,A,B) _mm512_mask_fcmul_pch ((W), (U), (A), (B))
+#define _mm512_mask_cmul_round_pch(W,U,A,B,R) _mm512_mask_fcmul_round_pch ((W), (U), (A), (B), (R))
+#define _mm512_mask_exp2a23_pd(W,U,A) _mm512_mask_exp2a23_round_pd(W, U, A, _MM_FROUND_CUR_DIRECTION)
+#define _mm512_mask_exp2a23_ps(W,U,A) _mm512_mask_exp2a23_round_ps(W, U, A, _MM_FROUND_CUR_DIRECTION)
+#define _mm512_mask_mul_pch(W,U,A,B) _mm512_mask_fmul_pch ((W), (U), (A), (B))
+#define _mm512_mask_mul_round_pch(W,U,A,B,R) _mm512_mask_fmul_round_pch ((W), (U), (A), (B), (R))
+#define _mm512_mask_rcp28_pd(W,U,A) _mm512_mask_rcp28_round_pd(W, U, A, _MM_FROUND_CUR_DIRECTION)
+#define _mm512_mask_rcp28_ps(W,U,A) _mm512_mask_rcp28_round_ps(W, U, A, _MM_FROUND_CUR_DIRECTION)
+#define _mm512_mask_rsqrt28_pd(W,U,A) _mm512_mask_rsqrt28_round_pd(W, U, A, _MM_FROUND_CUR_DIRECTION)
+#define _mm512_mask_rsqrt28_ps(W,U,A) _mm512_mask_rsqrt28_round_ps(W, U, A, _MM_FROUND_CUR_DIRECTION)
+#define _mm512_maskz_cmul_pch(U,A,B) _mm512_maskz_fcmul_pch ((U), (A), (B))
+#define _mm512_maskz_cmul_round_pch(U,A,B,R) _mm512_maskz_fcmul_round_pch ((U), (A), (B), (R))
+#define _mm512_maskz_exp2a23_pd(U,A) _mm512_maskz_exp2a23_round_pd(U, A, _MM_FROUND_CUR_DIRECTION)
+#define _mm512_maskz_exp2a23_ps(U,A) _mm512_maskz_exp2a23_round_ps(U, A, _MM_FROUND_CUR_DIRECTION)
+#define _mm512_maskz_mul_pch(U,A,B) _mm512_maskz_fmul_pch ((U), (A), (B))
+#define _mm512_maskz_mul_round_pch(U,A,B,R) _mm512_maskz_fmul_round_pch ((U), (A), (B), (R))
+#define _mm512_maskz_rcp28_pd(U,A) _mm512_maskz_rcp28_round_pd(U, A, _MM_FROUND_CUR_DIRECTION)
+#define _mm512_maskz_rcp28_ps(U,A) _mm512_maskz_rcp28_round_ps(U, A, _MM_FROUND_CUR_DIRECTION)
+#define _mm512_maskz_rsqrt28_pd(U,A) _mm512_maskz_rsqrt28_round_pd(U, A, _MM_FROUND_CUR_DIRECTION)
+#define _mm512_maskz_rsqrt28_ps(U,A) _mm512_maskz_rsqrt28_round_ps(U, A, _MM_FROUND_CUR_DIRECTION)
+#define _mm512_mul_pch(A,B) _mm512_fmul_pch ((A), (B))
+#define _mm512_mul_round_pch(A,B,R) _mm512_fmul_round_pch ((A), (B), (R))
+#define _mm512_rcp28_pd(A) _mm512_rcp28_round_pd(A, _MM_FROUND_CUR_DIRECTION)
+#define _mm512_rcp28_ps(A) _mm512_rcp28_round_ps(A, _MM_FROUND_CUR_DIRECTION)
+#define _mm512_rsqrt28_pd(A) _mm512_rsqrt28_round_pd(A, _MM_FROUND_CUR_DIRECTION)
+#define _mm512_rsqrt28_ps(A) _mm512_rsqrt28_round_ps(A, _MM_FROUND_CUR_DIRECTION)
+#define _mm512_setr4_epi32(e0,e1,e2,e3) _mm512_set4_epi32(e3,e2,e1,e0)
+#define _mm512_setr4_epi64(e0,e1,e2,e3) _mm512_set4_epi64(e3,e2,e1,e0)
+#define _mm512_setr4_pd(e0,e1,e2,e3) _mm512_set4_pd(e3,e2,e1,e0)
+#define _mm512_setr4_ps(e0,e1,e2,e3) _mm512_set4_ps(e3,e2,e1,e0)
+#define _mm512_setr_epi32(e0,e1,e2,e3,e4,e5,e6,e7,e8,e9,e10,e11,e12,e13,e14,e15) _mm512_set_epi32(e15,e14,e13,e12,e11,e10,e9,e8,e7,e6,e5,e4,e3,e2,e1,e0)
+#define _mm512_setr_epi64(e0,e1,e2,e3,e4,e5,e6,e7) _mm512_set_epi64(e7,e6,e5,e4,e3,e2,e1,e0)
+#define _mm512_setr_pd(e0,e1,e2,e3,e4,e5,e6,e7) _mm512_set_pd(e7,e6,e5,e4,e3,e2,e1,e0)
+#define _mm512_setr_ps(e0,e1,e2,e3,e4,e5,e6,e7,e8,e9,e10,e11,e12,e13,e14,e15) _mm512_set_ps(e15,e14,e13,e12,e11,e10,e9,e8,e7,e6,e5,e4,e3,e2,e1,e0)
+#define _mm512_undefined _mm512_undefined_ps
+#define _mm512_undefined_si512 _mm512_undefined_epi32
+#define _mm_broadcastsd_pd(X) _mm_movedup_pd(X)
+#define _mm_broadcastsi128_si256(X) _mm256_broadcastsi128_si256(X)
+#define _mm_ceil_pd(V) _mm_round_pd ((V), _MM_FROUND_CEIL)
+#define _mm_ceil_ps(V) _mm_round_ps ((V), _MM_FROUND_CEIL)
+#define _mm_ceil_sd(D,V) _mm_round_sd ((D), (V), _MM_FROUND_CEIL)
+#define _mm_ceil_ss(D,V) _mm_round_ss ((D), (V), _MM_FROUND_CEIL)
+#define _mm_cmp_ph_mask(A,B,C) (__builtin_ia32_cmpph128_mask ((A), (B), (C), (-1)))
+#define _mm_cmul_pch(A,B) _mm_fcmul_pch ((A), (B))
+#define _mm_cmul_round_sch(A,B,R) _mm_fcmul_round_sch ((A), (B), (R))
+#define _mm_cmul_sch(A,B) _mm_fcmul_sch ((A), (B))
+#define _mm_cvtneps_pbh(A) (__m128bh) __builtin_ia32_cvtneps2bf16_v4sf (A)
+#define _mm_dpbusd_epi32(A,B,C) ((__m128i) __builtin_ia32_vpdpbusd_v4si ((__v4si) (A), (__v4si) (B), (__v4si) (C)))
+#define _mm_dpbusds_epi32(A,B,C) ((__m128i) __builtin_ia32_vpdpbusds_v4si ((__v4si) (A), (__v4si) (B), (__v4si) (C)))
+#define _mm_dpwssd_epi32(A,B,C) ((__m128i) __builtin_ia32_vpdpwssd_v4si ((__v4si) (A), (__v4si) (B), (__v4si) (C)))
+#define _mm_dpwssds_epi32(A,B,C) ((__m128i) __builtin_ia32_vpdpwssds_v4si ((__v4si) (A), (__v4si) (B), (__v4si) (C)))
+#define _mm_floor_pd(V) _mm_round_pd((V), _MM_FROUND_FLOOR)
+#define _mm_floor_ps(V) _mm_round_ps ((V), _MM_FROUND_FLOOR)
+#define _mm_floor_sd(D,V) _mm_round_sd ((D), (V), _MM_FROUND_FLOOR)
+#define _mm_floor_ss(D,V) _mm_round_ss ((D), (V), _MM_FROUND_FLOOR)
+#define _mm_madd52hi_epu64(A,B,C) ((__m128i) __builtin_ia32_vpmadd52huq128 ((__v2di) (A), (__v2di) (B), (__v2di) (C)))
+#define _mm_madd52lo_epu64(A,B,C) ((__m128i) __builtin_ia32_vpmadd52luq128 ((__v2di) (A), (__v2di) (B), (__v2di) (C)))
+#define _mm_mask_cmp_ph_mask(A,B,C,D) (__builtin_ia32_cmpph128_mask ((B), (C), (D), (A)))
+#define _mm_mask_cmul_pch(W,U,A,B) _mm_mask_fcmul_pch ((W), (U), (A), (B))
+#define _mm_mask_cmul_round_sch(W,U,A,B,R) _mm_mask_fcmul_round_sch ((W), (U), (A), (B), (R))
+#define _mm_mask_cmul_sch(W,U,A,B) _mm_mask_fcmul_sch ((W), (U), (A), (B))
+#define _mm_mask_cvt_roundps_ph(A,B,C,D) _mm_mask_cvtps_ph ((A), (B), (C), (D))
+#define _mm_mask_cvtsd_ss(W,U,A,B) _mm_mask_cvt_roundsd_ss ((W), (U), (A), (B), _MM_FROUND_CUR_DIRECTION)
+#define _mm_mask_cvtss_sd(W,U,A,B) _mm_mask_cvt_roundss_sd ((W), (U), (A), (B), _MM_FROUND_CUR_DIRECTION)
+#define _mm_mask_mul_pch(W,U,A,B) _mm_mask_fmul_pch ((W), (U), (A), (B))
+#define _mm_mask_mul_round_sch(W,U,A,B,R) _mm_mask_fmul_round_sch ((W), (U), (A), (B), (R))
+#define _mm_mask_mul_sch(W,U,A,B) _mm_mask_fmul_sch ((W), (U), (A), (B))
+#define _mm_mask_rcp28_sd(W,U,A,B) _mm_mask_rcp28_round_sd ((W), (U), (A), (B), _MM_FROUND_CUR_DIRECTION)
+#define _mm_mask_rcp28_ss(W,U,A,B) _mm_mask_rcp28_round_ss ((W), (U), (A), (B), _MM_FROUND_CUR_DIRECTION)
+#define _mm_mask_rsqrt28_sd(W,U,A,B) _mm_mask_rsqrt28_round_sd ((W), (U), (A), (B), _MM_FROUND_CUR_DIRECTION)
+#define _mm_mask_rsqrt28_ss(W,U,A,B) _mm_mask_rsqrt28_round_ss ((W), (U), (A), (B), _MM_FROUND_CUR_DIRECTION)
+#define _mm_mask_scalef_sd(W,U,A,B) _mm_mask_scalef_round_sd ((W), (U), (A), (B), _MM_FROUND_CUR_DIRECTION)
+#define _mm_mask_scalef_ss(W,U,A,B) _mm_mask_scalef_round_ss ((W), (U), (A), (B), _MM_FROUND_CUR_DIRECTION)
+#define _mm_mask_sqrt_sd(W,U,A,B) _mm_mask_sqrt_round_sd ((W), (U), (A), (B), _MM_FROUND_CUR_DIRECTION)
+#define _mm_mask_sqrt_ss(W,U,A,B) _mm_mask_sqrt_round_ss ((W), (U), (A), (B), _MM_FROUND_CUR_DIRECTION)
+#define _mm_maskz_cmul_pch(U,A,B) _mm_maskz_fcmul_pch ((U), (A), (B))
+#define _mm_maskz_cmul_round_sch(U,A,B,R) _mm_maskz_fcmul_round_sch ((U), (A), (B), (R))
+#define _mm_maskz_cmul_sch(U,A,B) _mm_maskz_fcmul_sch ((U), (A), (B))
+#define _mm_maskz_cvt_roundps_ph(A,B,C) _mm_maskz_cvtps_ph ((A), (B), (C))
+#define _mm_maskz_cvtsd_ss(U,A,B) _mm_maskz_cvt_roundsd_ss ((U), (A), (B), _MM_FROUND_CUR_DIRECTION)
+#define _mm_maskz_cvtss_sd(U,A,B) _mm_maskz_cvt_roundss_sd ((U), (A), (B), _MM_FROUND_CUR_DIRECTION)
+#define _mm_maskz_mul_pch(U,A,B) _mm_maskz_fmul_pch ((U), (A), (B))
+#define _mm_maskz_mul_round_sch(U,A,B,R) _mm_maskz_fmul_round_sch ((U), (A), (B), (R))
+#define _mm_maskz_mul_sch(U,A,B) _mm_maskz_fmul_sch ((U), (A), (B))
+#define _mm_maskz_rcp28_sd(U,A,B) _mm_maskz_rcp28_round_sd ((U), (A), (B), _MM_FROUND_CUR_DIRECTION)
+#define _mm_maskz_rcp28_ss(U,A,B) _mm_maskz_rcp28_round_ss ((U), (A), (B), _MM_FROUND_CUR_DIRECTION)
+#define _mm_maskz_rsqrt28_sd(U,A,B) _mm_maskz_rsqrt28_round_sd ((U), (A), (B), _MM_FROUND_CUR_DIRECTION)
+#define _mm_maskz_rsqrt28_ss(U,A,B) _mm_maskz_rsqrt28_round_ss ((U), (A), (B), _MM_FROUND_CUR_DIRECTION)
+#define _mm_maskz_scalef_sd(U,A,B) _mm_maskz_scalef_round_sd ((U), (A), (B), _MM_FROUND_CUR_DIRECTION)
+#define _mm_maskz_scalef_ss(U,A,B) _mm_maskz_scalef_round_ss ((U), (A), (B), _MM_FROUND_CUR_DIRECTION)
+#define _mm_maskz_sqrt_sd(U,A,B) _mm_maskz_sqrt_round_sd ((U), (A), (B), _MM_FROUND_CUR_DIRECTION)
+#define _mm_maskz_sqrt_ss(U,A,B) _mm_maskz_sqrt_round_ss ((U), (A), (B), _MM_FROUND_CUR_DIRECTION)
+#define _mm_mul_pch(A,B) _mm_fmul_pch ((A), (B))
+#define _mm_mul_round_sch(A,B,R) _mm_fmul_round_sch ((A), (B), (R))
+#define _mm_mul_sch(A,B) _mm_fmul_sch ((A), (B))
+#define _mm_rcp28_sd(A,B) __builtin_ia32_rcp28sd_round(B, A, _MM_FROUND_CUR_DIRECTION)
+#define _mm_rcp28_ss(A,B) __builtin_ia32_rcp28ss_round(B, A, _MM_FROUND_CUR_DIRECTION)
+#define _mm_rsqrt28_sd(A,B) __builtin_ia32_rsqrt28sd_round(B, A, _MM_FROUND_CUR_DIRECTION)
+#define _mm_rsqrt28_ss(A,B) __builtin_ia32_rsqrt28ss_round(B, A, _MM_FROUND_CUR_DIRECTION)
+#define _mm_test_all_ones(V) _mm_testc_si128 ((V), _mm_cmpeq_epi32 ((V), (V)))
+#define _mm_test_all_zeros(M,V) _mm_testz_si128 ((M), (V))
+#define _mm_test_mix_ones_zeros(M,V) _mm_testnzc_si128 ((M), (V))
+#define _popcnt32(a) __popcntd(a)
+#define _popcnt64(a) __popcntq(a)
+#define _rdpmc(a) __rdpmc(a)
+#define _rdtsc() __rdtsc()
+#define _rdtscp(a) __rdtscp(a)
+#define _rotl(a,b) __rold((a), (b))
+#define _rotr(a,b) __rord((a), (b))
+#define _rotwl(a,b) __rolw((a), (b))
+#define _rotwr(a,b) __rorw((a), (b))
+#define _tile_cmmimfp16ps(src1_dst,src2,src3) _tile_cmmimfp16ps_internal (src1_dst, src2, src3)
+#define _tile_cmmimfp16ps_internal(src1_dst,src2,src3) __asm__ volatile ("{tcmmimfp16ps\t%%tmm"#src3", %%tmm"#src2", %%tmm"#src1_dst"|tcmmimfp16ps\t%%tmm"#src1_dst", %%tmm"#src2", %%tmm"#src3"}" ::)
+#define _tile_cmmrlfp16ps(src1_dst,src2,src3) _tile_cmmrlfp16ps_internal (src1_dst, src2, src3)
+#define _tile_cmmrlfp16ps_internal(src1_dst,src2,src3) __asm__ volatile ("{tcmmrlfp16ps\t%%tmm"#src3", %%tmm"#src2", %%tmm"#src1_dst"|tcmmrlfp16ps\t%%tmm"#src1_dst", %%tmm"#src2", %%tmm"#src3"}" ::)
+#define _tile_dpbf16ps(dst,src1,src2) _tile_dpbf16ps_internal (dst, src1, src2)
+#define _tile_dpbf16ps_internal(dst,src1,src2) __asm__ volatile ("{tdpbf16ps\t%%tmm"#src2", %%tmm"#src1", %%tmm"#dst"|tdpbf16ps\t%%tmm"#dst", %%tmm"#src1", %%tmm"#src2"}" ::)
+#define _tile_dpbssd(dst,src1,src2) _tile_int8_dp_internal (tdpbssd, dst, src1, src2)
+#define _tile_dpbsud(dst,src1,src2) _tile_int8_dp_internal (tdpbsud, dst, src1, src2)
+#define _tile_dpbusd(dst,src1,src2) _tile_int8_dp_internal (tdpbusd, dst, src1, src2)
+#define _tile_dpbuud(dst,src1,src2) _tile_int8_dp_internal (tdpbuud, dst, src1, src2)
+#define _tile_dpfp16ps(dst,src1,src2) _tile_dpfp16ps_internal (dst,src1,src2)
+#define _tile_dpfp16ps_internal(dst,src1,src2) __asm__ volatile ("{tdpfp16ps\t%%tmm"#src2", %%tmm"#src1", %%tmm"#dst"|tdpfp16ps\t%%tmm"#dst", %%tmm"#src1", %%tmm"#src2"}" ::)
+#define _tile_int8_dp_internal(name,dst,src1,src2) __asm__ volatile ("{"#name"\t%%tmm"#src2", %%tmm"#src1", %%tmm"#dst"|"#name"\t%%tmm"#dst", %%tmm"#src1", %%tmm"#src2"}" ::)
+#define _tile_loadd(dst,base,stride) _tile_loadd_internal (dst, base, stride)
+#define _tile_loadd_internal(dst,base,stride) __asm__ volatile ("{tileloadd\t(%0,%1,1), %%tmm"#dst"|tileloadd\t%%tmm"#dst", [%0+%1*1]}" :: "r" ((const void*) (base)), "r" ((__PTRDIFF_TYPE__) (stride)))
+#define _tile_stored(dst,base,stride) _tile_stored_internal (dst, base, stride)
+#define _tile_stored_internal(src,base,stride) __asm__ volatile ("{tilestored\t%%tmm"#src", (%0,%1,1)|tilestored\t[%0+%1*1], %%tmm"#src"}" :: "r" ((void*) (base)), "r" ((__PTRDIFF_TYPE__) (stride)) : "memory")
+#define _tile_stream_loadd(dst,base,stride) _tile_stream_loadd_internal (dst, base, stride)
+#define _tile_stream_loadd_internal(dst,base,stride) __asm__ volatile ("{tileloaddt1\t(%0,%1,1), %%tmm"#dst"|tileloaddt1\t%%tmm"#dst", [%0+%1*1]}" :: "r" ((const void*) (base)), "r" ((__PTRDIFF_TYPE__) (stride)))
+#define _tile_zero(dst) _tile_zero_internal (dst)
+#define _tile_zero_internal(dst) __asm__ volatile ("tilezero\t%%tmm"#dst ::)
+#define alloca(size) __builtin_alloca (size)
+#define be16toh(x) __bswap_16 (x)
+#define be32toh(x) __bswap_32 (x)
+#define be64toh(x) __bswap_64 (x)
+#define fpclassify(x) __builtin_fpclassify (FP_NAN, FP_INFINITE, FP_NORMAL, FP_SUBNORMAL, FP_ZERO, x)
+#define fpr_gm_tab Zf(fpr_gm_tab)
+#define fpr_p2_tab Zf(fpr_p2_tab)
+#define fwrite_unlocked(ptr,size,n,stream) (__extension__ ((__builtin_constant_p (size) && __builtin_constant_p (n) && (size_t) (size) * (size_t) (n) <= 8 && (size_t) (size) != 0) ? ({ const char *__ptr = (const char *) (ptr); FILE *__stream = (stream); size_t __cnt; for (__cnt = (size_t) (size) * (size_t) (n); __cnt > 0; --__cnt) if (putc_unlocked (*__ptr++, __stream) == EOF) break; ((size_t) (size) * (size_t) (n) - __cnt) / (size_t) (size); }) : (((__builtin_constant_p (size) && (size_t) (size) == 0) || (__builtin_constant_p (n) && (size_t) (n) == 0)) ? ((void) (ptr), (void) (stream), (void) (size), (void) (n), (size_t) 0) : fwrite_unlocked (ptr, size, n, stream))))
+#define htobe16(x) __bswap_16 (x)
+#define htobe32(x) __bswap_32 (x)
+#define htobe64(x) __bswap_64 (x)
+#define htole16(x) __uint16_identity (x)
+#define htole32(x) __uint32_identity (x)
+#define htole64(x) __uint64_identity (x)
+#define inner_shake256_extract Zf(i_shake256_extract)
+#define inner_shake256_flip Zf(i_shake256_flip)
+#define inner_shake256_init Zf(i_shake256_init)
+#define inner_shake256_inject Zf(i_shake256_inject)
+#define isfinite(x) __builtin_isfinite (x)
+#define isgreater(x,y) __builtin_isgreater(x, y)
+#define isgreaterequal(x,y) __builtin_isgreaterequal(x, y)
+#define isinf(x) __builtin_isinf_sign (x)
+#define isless(x,y) __builtin_isless(x, y)
+#define islessequal(x,y) __builtin_islessequal(x, y)
+#define islessgreater(x,y) __builtin_islessgreater(x, y)
+#define isnan(x) __builtin_isnan (x)
+#define isnormal(x) __builtin_isnormal (x)
+#define isunordered(x,y) __builtin_isunordered(x, y)
+#define le16toh(x) __uint16_identity (x)
+#define le32toh(x) __uint32_identity (x)
+#define le64toh(x) __uint64_identity (x)
+#define linux 1
+#define math_errhandling (MATH_ERRNO | MATH_ERREXCEPT)
+#define offsetof(TYPE,MEMBER) __builtin_offsetof (TYPE, MEMBER)
+#define signbit(x) __builtin_signbit (x)
+#define stderr stderr
+#define stdin stdin
+#define stdout stdout
+#define unix 1
